@@ -49,4 +49,7 @@ dependencies {
     //app intro
     // AndroidX Capable version
     implementation 'com.github.AppIntro:AppIntro:6.2.0'
+
+    //image carousel
+    implementation 'com.github.akshaaatt:Sliding-Carousel:1.0.4'
 }

@@ -10,14 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Foodrecipeapp">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.intro.IntroActivity"
             android:exported="false" />
         <activity
-            android:name=".home.HomeActivity"
-            android:exported="true">
+            android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.splashscreen.SplashScreen"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

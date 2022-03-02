@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Text.Roboto" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/roboto</item>
+    </style>
+    <style name="Text.Poppins" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/poppins</item>
+    </style>
+    <style name="Text.Scada" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/scada</item>
+    </style>
+
+<!--    style roboto-->
+    <style name="Text.Roboto.Black" parent="Text.Roboto">
+        <item name="android:textColor">@color/black_font</item>
+    </style>
+    <style name="Text.Roboto.Primary" parent="Text.Roboto">
+        <item name="android:textColor">@color/primary</item>
+    </style>
+    <style name="Text.Roboto.White" parent="Text.Roboto">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+<!--    style poppins-->
+    <style name="Text.Poppins.Black" parent="Text.Poppins">
+        <item name="android:textColor">@color/black_font</item>
+    </style>
+    <style name="Text.Poppins.Primary" parent="Text.Poppins">
+        <item name="android:textColor">@color/primary</item>
+    </style>
+
+<!--    style scada-->
+    <style name="Text.Scada.Black" parent="Text.Scada">
+        <item name="android:textColor">@color/black_font</item>
+    </style>
+    <style name="Text.Scada.Primary" parent="Text.Scada">
+        <item name="android:textColor">@color/primary</item>
+    </style>
+</resources>

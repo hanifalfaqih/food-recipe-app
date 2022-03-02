@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">food-recipe-app</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_title_intro_one">Explore Thousands of Recipes</string>
+    <string name="text_desc_intro_one">You can create your own recipe here</string>
+    <string name="text_title_intro_two">Feel Free to Update</string>
+    <string name="text_desc_intro_two">If recipe is not relevant anymore, feel free to Update</string>
+    <string name="text_title_intro_three">Feel Free to Remove</string>
+    <string name="text_desc_intro_three">If recipe is not relevant anymore, you can remove easily</string>
 </resources>

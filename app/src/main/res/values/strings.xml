@@ -24,10 +24,30 @@
     <string name="btn_update_recipe">Update</string>
     <string name="btn_delete_recipe">delete</string>
     <string name="btn_save_recipe">save</string>
+    <string name="text_copy_link_image">Copy Link Image</string>
+    <string name="text_hint_link_image">Link Image</string>
+    <string name="text_hint_recipe_ingredients">Ingredients</string>
+    <string name="text_recipe_categories">Categories</string>
+    <string name="text_recipe_instructions">Instructions</string>
+    <string name="text_ingredients">Ingredients</string>
+    <string name="text_instructions">Instructions</string>
+    <string name="text_save">Save</string>
+    <string name="text_delete">Delete</string>
 
     <string-array name="categories">
-        <item>Western</item>
-        <item>Indonesian</item>
-        <item>Chinese</item>
+        <item>Beef</item>
+        <item>Breakfast</item>
+        <item>Chicken</item>
+        <item>Desert</item>
+        <item>Goat</item>
+        <item>Lamb</item>
+        <item>Miscellaneous</item>
+        <item>Pasta</item>
+        <item>Pork</item>
+        <item>Seafood</item>
+        <item>Side</item>
+        <item>Starter</item>
+        <item>Vegan</item>
+        <item>Vegetarian</item>
     </string-array>
 </resources>

@@ -33,6 +33,16 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="hintEnabled">false</item>
         <item name="android:textColor">@color/black_font</item>
-        <item name="android:gravity">center_vertical</item>
+        <item name="android:gravity">center_vertical</item></style>
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@drawable/text_input_layout_color_state</item>
+        <item name="android:textColor">@color/black_font</item>
+        <item name="android:textColorHint">@color/text_color_hint</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="boxBackgroundColor">@color/bg_text_input_layout</item>
+    </style>
+
+    <style name="SpinnerStyle" parent="Widget.AppCompat.Spinner">
+        <item name="android:textColor">@color/black_font</item>
     </style>
 </resources>

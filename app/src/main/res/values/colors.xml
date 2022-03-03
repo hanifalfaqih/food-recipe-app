@@ -14,4 +14,6 @@
     <color name="unselected_indicator">#B6AA9E</color>
     <color name="fillColor">#F1EFED</color>
     <color name="hintColor">#A9A8A7</color>
+    <color name="text_color_hint">#919191</color>
+    <color name="bg_text_input_layout">#F1EFED</color>
 </resources>

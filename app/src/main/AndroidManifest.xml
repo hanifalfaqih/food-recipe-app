@@ -14,13 +14,13 @@
             android:name=".ui.intro.IntroActivity"
             android:exported="false" />
         <activity
-            android:name=".edit_delete.EditDeleteActivity"
+            android:name=".ui.edit_delete.EditDeleteActivity"
             android:exported="true"/>
         <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name="com.allana.food_recipe_app.ui.home.HomeActivity"
+            android:name=".ui.home.HomeActivity"
             android:exported="true" />
         <activity
             android:name=".ui.splashscreen.SplashScreen"

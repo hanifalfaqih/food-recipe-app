@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeActivity"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:context=".ui.home.HomeActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide_start"
@@ -25,36 +25,48 @@
         android:id="@+id/tv_title_recipe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/text_title_recipe"
-        android:fontFamily="@font/playfair_display_black"
-        android:gravity="center"
-        android:textSize="@dimen/_18ssp"
         android:layout_marginTop="@dimen/_30sdp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/poppins_bold"
+        android:gravity="center"
+        android:text="@string/text_title_recipe"
+        android:textColor="@color/black_font"
+        android:textSize="@dimen/_18ssp"
+        app:layout_constraintEnd_toEndOf="@id/guide_end"
         app:layout_constraintStart_toStartOf="@id/guide_start"
-        app:layout_constraintEnd_toEndOf="@id/guide_end"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_title_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/text_popular_meal"
-        android:fontFamily="@font/playfair_display_black"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_14ssp"
         android:layout_marginTop="@dimen/_30sdp"
+        android:fontFamily="@font/poppins_bold"
         android:paddingBottom="@dimen/_4sdp"
-        app:layout_constraintTop_toBottomOf="@id/tv_title_recipe"
-        app:layout_constraintStart_toStartOf="@id/guide_start"/>
+        android:text="@string/text_popular_meal"
+        android:textColor="@color/black_font"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintStart_toStartOf="@id/guide_start"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_recipe" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_category"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/guide_end"
         app:layout_constraintStart_toStartOf="@id/guide_start"
         app:layout_constraintTop_toBottomOf="@id/tv_title_category"
-        app:layout_constraintBottom_toBottomOf="parent"
         tools:listitem="@layout/item_recipe" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_16sdp"
+        app:backgroundTint="@color/primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_add"
+        app:tint="@color/white" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

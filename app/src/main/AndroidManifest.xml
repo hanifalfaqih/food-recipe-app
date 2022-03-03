@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.allana.food_recipe_app">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,17 +14,19 @@
         android:theme="@style/Theme.Foodrecipeapp">
         <activity
             android:name=".ui.intro.IntroActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Intro"/>
         <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".home.HomeActivity"
-            android:exported="true"/>
+            android:name=".ui.home.HomeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Home"/>
         <activity
             android:name=".ui.splashscreen.SplashScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.SplashScreen"
             android:exported="true">
-            android:theme="@style/Theme.Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

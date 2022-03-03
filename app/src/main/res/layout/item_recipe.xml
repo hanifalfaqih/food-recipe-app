@@ -4,73 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/_6sdp"
-    android:layout_marginBottom="@dimen/_6sdp">
+    android:layout_margin="@dimen/_6sdp">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cv_img"
-        android:layout_width="100dp"
-        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="@dimen/_6sdp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <ImageView
-            android:id="@+id/iv_food"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_blackberry_fool"
-            android:scaleType="centerCrop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.cardview.widget.CardView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/iv_food"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_88sdp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_blackberry_fool" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
-        android:id="@+id/tv_title_food"
+        android:id="@+id/tv_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_16sdp"
+        android:text="@string/text_category"
+        android:textColor="@color/black_font"
         android:fontFamily="@font/roboto_bold"
-        android:text="@string/text_title_food"
-        android:textColor="@color/black"
         android:textSize="@dimen/_12ssp"
-        app:layout_constraintStart_toEndOf="@id/cv_img"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_title_tag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_16sdp"
-        android:fontFamily="@font/roboto_regular"
-        android:text="@string/text_title_tags"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_10ssp"
-        app:layout_constraintStart_toEndOf="@id/cv_img"
-        app:layout_constraintTop_toBottomOf="@id/tv_title_food" />
-
-    <View
-        android:id="@+id/view_dashed"
-        android:layout_width="0dp"
-        android:layout_height="5dp"
-        android:background="@drawable/ic_line_dashed"
-        android:layout_marginTop="@dimen/_6sdp"
-        app:layout_constraintStart_toStartOf="@id/tv_title_food"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_title_tag"/>
-
-    <TextView
-        android:id="@+id/tv_title_area"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_16sdp"
-        android:fontFamily="@font/roboto_regular"
-        android:text="@string/text_title_area"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_10ssp"
-        app:layout_constraintStart_toEndOf="@id/cv_img"
-        app:layout_constraintTop_toBottomOf="@id/view_dashed"
-        app:layout_constraintBottom_toBottomOf="@id/cv_img"/>
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@id/cv_img"
+        app:layout_constraintStart_toStartOf="@id/cv_img"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

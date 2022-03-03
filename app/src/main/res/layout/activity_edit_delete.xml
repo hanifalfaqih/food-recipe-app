@@ -1,110 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        app:layout_constraintBottom_toTopOf="@id/btn_update_recipe"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <com.aemerse.slider.ImageCarousel
-            android:id="@+id/iv_edit_delete"
-            android:layout_width="0dp"
-            android:layout_height="163dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="16dp"
-            app:indicatorMargin="4dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:showIndicator="true"
-            app:showNavigationButtons="true" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_recipe_name"
-            style="@style/TextInputLayoutStyle"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="8dp"
-            android:hint="@string/text_hint_recipe_name"
-            app:endIconMode="clear_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_edit_delete">
+            android:orientation="vertical">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_recipe_name"
-                android:layout_width="match_parent"
+            <com.aemerse.slider.ImageCarousel
+                android:id="@+id/iv_edit_delete"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_200sdp"
+                app:indicatorMargin="@dimen/_4sdp"
+                app:showIndicator="true"
+                app:showNavigationButtons="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:maxLines="1" />
+                android:layout_marginStart="@dimen/_22sdp"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/text_hint_recipe_name"
+                android:textColor="@color/black_font"
+                android:textSize="@dimen/_14ssp" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_recipe_name"
+                style="@style/TextInputLayoutStyle"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:endIconMode="clear_text">
 
-        <Spinner
-            android:id="@+id/spinner_categories"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:entries="@array/categories"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/til_recipe_name" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_recipe_name"
+                    style="@style/TextEditLayoutStyle"
+                    android:inputType="text"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_recipe_body"
-            style="@style/TextInputLayoutStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="8dp"
-            android:hint="@string/text_hint_recipe_body"
-            app:endIconMode="clear_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner_categories">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_recipe_body"
+            <Spinner
+                android:id="@+id/spinner_categories"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="textMultiLine"
-                android:maxLines="75"/>
+                android:layout_height="60dp"
+                android:layout_marginStart="@dimen/_22sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_22sdp"
+                android:entries="@array/categories" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_recipe_body"
+                style="@style/TextInputMultiStyle"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:hint="@string/text_hint_recipe_body"
+                app:endIconMode="clear_text">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_update_recipe"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_update_recipe"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintTop_toBottomOf="@id/til_recipe_body"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_recipe_body"
+                    style="@style/TextEditLayoutStyle"
+                    android:inputType="textMultiLine"
+                    android:maxLines="75" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_delete_recipe"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_delete_recipe"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintTop_toBottomOf="@id/btn_update_recipe"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+        </LinearLayout>
+    </ScrollView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_update_recipe"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_42sdp"
+        android:layout_marginStart="@dimen/_22sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_22sdp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/btn_update_recipe"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14ssp"
+        app:backgroundTint="@color/primary"
+        app:cornerRadius="@dimen/_10sdp"
+        app:layout_constraintBottom_toTopOf="@id/btn_delete_recipe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</ScrollView>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_delete_recipe"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_42sdp"
+        android:layout_marginStart="@dimen/_22sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_22sdp"
+        android:layout_marginBottom="@dimen/_22sdp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/btn_delete_recipe"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14ssp"
+        app:backgroundTint="@color/primary"
+        app:cornerRadius="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

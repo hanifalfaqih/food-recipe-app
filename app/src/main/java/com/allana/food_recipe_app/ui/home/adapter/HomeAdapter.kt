@@ -3,10 +3,9 @@ package com.allana.food_recipe_app.ui.home.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
 import com.allana.food_recipe_app.databinding.ItemRecipeBinding
-import com.allana.food_recipe_app.ui.data.model.Recipe
+import com.allana.food_recipe_app.data.model.Recipe
 import com.bumptech.glide.Glide
 
 class HomeAdapter(var context: Context) :

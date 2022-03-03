@@ -1,4 +1,4 @@
-package com.allana.food_recipe_app.edit_delete
+package com.allana.food_recipe_app.ui.update
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable

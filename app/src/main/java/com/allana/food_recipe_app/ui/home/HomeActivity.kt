@@ -1,17 +1,15 @@
 package com.allana.food_recipe_app.ui.home
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.allana.food_recipe_app.R
 import com.allana.food_recipe_app.databinding.ActivityHomeBinding
-import com.allana.food_recipe_app.ui.data.datasource.RecipeDataSource
-import com.allana.food_recipe_app.ui.data.model.Recipe
+import com.allana.food_recipe_app.data.datasource.RecipeDataSource
+import com.allana.food_recipe_app.data.model.Recipe
 import com.allana.food_recipe_app.ui.home.adapter.HomeAdapter
-import com.bumptech.glide.Glide
+import com.allana.food_recipe_app.ui.update.EditDeleteActivity
 
 class HomeActivity : AppCompatActivity() {
 
@@ -32,6 +30,7 @@ class HomeActivity : AppCompatActivity() {
 
     private fun initView() {
         binding.fabAdd.setOnClickListener {
+            startActivity(Intent(this, EditDeleteActivity::class.java))
             Toast.makeText(this, "click", Toast.LENGTH_SHORT).show()
         }
     }

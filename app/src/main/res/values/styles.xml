@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeColor">@color/colorPrimary</item>
+    <style name="TextInputLayoutStyle" parent="ThemeOverlay.Material3.TextInputEditText.FilledBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/_42sdp</item>
+        <item name="android:textColor">@color/black_font</item>
+        <item name="android:layout_marginStart">@dimen/_22sdp</item>
+        <item name="android:layout_marginEnd">@dimen/_22sdp</item>
+        <item name="boxBackgroundColor">@color/fillColor</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="boxCornerRadiusBottomEnd">10dp</item>
+        <item name="boxCornerRadiusBottomStart">10dp</item>
+        <item name="boxCornerRadiusTopEnd">10dp</item>
+        <item name="boxCornerRadiusTopStart">10dp</item>
+    </style>
+    <style name="TextInputMultiStyle" parent="ThemeOverlay.Material3.TextInputEditText.FilledBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black_font</item>
+        <item name="android:layout_marginStart">@dimen/_22sdp</item>
+        <item name="android:layout_marginEnd">@dimen/_22sdp</item>
+        <item name="boxBackgroundColor">@color/fillColor</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="boxCornerRadiusBottomEnd">10dp</item>
+        <item name="boxCornerRadiusBottomStart">10dp</item>
+        <item name="boxCornerRadiusTopEnd">10dp</item>
+        <item name="boxCornerRadiusTopStart">10dp</item>
+    </style>
+    <style name="TextEditLayoutStyle" parent="ThemeOverlay.Material3.TextInputEditText.FilledBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="hintEnabled">false</item>
+        <item name="android:textColor">@color/black_font</item>
+        <item name="android:gravity">center_vertical</item>
     </style>
 </resources>

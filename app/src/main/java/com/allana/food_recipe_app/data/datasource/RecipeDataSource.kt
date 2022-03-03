@@ -1,6 +1,6 @@
-package com.allana.food_recipe_app.ui.data.datasource
+package com.allana.food_recipe_app.data.datasource
 
-import com.allana.food_recipe_app.ui.data.model.Recipe
+import com.allana.food_recipe_app.data.model.Recipe
 
 class RecipeDataSource {
     companion object {

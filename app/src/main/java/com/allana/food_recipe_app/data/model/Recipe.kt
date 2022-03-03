@@ -1,4 +1,4 @@
-package com.allana.food_recipe_app.ui.data.model
+package com.allana.food_recipe_app.data.model
 
 data class Recipe(
     var recipeCategory: String,

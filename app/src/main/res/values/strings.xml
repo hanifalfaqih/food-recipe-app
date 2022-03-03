@@ -2,10 +2,20 @@
     <string name="app_name">food-recipe-app</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="text_title_intro_one">Explore Thousands of Recipes</string>
+    <string name="text_title_intro_one">Explore<font color="#FF672C">Thousands</font> of Recipes</string>
     <string name="text_desc_intro_one">You can create your own recipe here</string>
-    <string name="text_title_intro_two">Feel Free to Update</string>
+    <string name="text_title_intro_two">Feel <font color="#FF672C">Free</font> to Update</string>
     <string name="text_desc_intro_two">If recipe is not relevant anymore, feel free to Update</string>
-    <string name="text_title_intro_three">Feel Free to Remove</string>
+    <string name="text_title_intro_three">Feel <font color="#FF672C">Free</font> to Remove</string>
     <string name="text_desc_intro_three">If recipe is not relevant anymore, you can remove easily</string>
+    <string name="text_title_recipe"><font color="#3D3D3D">Simple way to find \n</font><font color="#FF6838">tasty recipes</font></string>
+    <string name="text_popular_meal">Popular Meal</string>
+    <string name="text_title_category">Category</string>
+    <string name="text_title_food">Teriyaki Chicken</string>
+    <string name="text_title_area">Country</string>
+    <string name="text_title_instruction">INSTRUCTIONS</string>
+    <string name="text_title_ingredients">INGREDIENTS</string>
+    <string name="text_title_tags">Desert, Summer, Fruity, Dairy</string>
+    <string name="text_btn_detile">Detail</string>
+    <string name="text_dsc_category">Beef is the culinary name for meat from cattle, particularly skeletal muscle. Humans have been eating beef since prehistori</string>
 </resources>

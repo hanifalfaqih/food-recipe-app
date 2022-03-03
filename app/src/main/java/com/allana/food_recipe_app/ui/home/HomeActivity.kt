@@ -1,4 +1,4 @@
-package com.allana.food_recipe_app.home
+package com.allana.food_recipe_app.ui.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

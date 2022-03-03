@@ -9,32 +9,12 @@
 
     <ImageView
         android:id="@+id/iv_top_splashscreen"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_splash"
+        android:layout_width="@dimen/_124sdp"
+        android:layout_height="@dimen/_128sdp"
+        android:src="@drawable/ic_splashscreen"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="@dimen/_5sdp"/>
-    <TextView
-        android:id="@+id/tv_title_splashscreen"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginBottom="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_100sdp"
-        android:layout_marginStart="@dimen/_100sdp"
-        app:layout_constraintTop_toBottomOf="@id/iv_top_splashscreen"
-        app:layout_constraintBottom_toTopOf="@id/iv_bot_splashscreen"
-        android:text="Food Recipe"
-        style="@style/Text.Poppins.Black"
-        android:textSize="@dimen/_32sdp"
-        android:textAlignment="center"
-        android:textStyle="bold"/>
-    <ImageView
-        android:id="@+id/iv_bot_splashscreen"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_splash"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="@dimen/_5sdp"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

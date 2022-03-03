@@ -3,11 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/drawable/ic_back.xml" value="0.1" />
-        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
-        <entry key="app/src/main/res/drawable/my_background.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_edit_delete.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.10511651469098278" />
+        <entry key="..\:/Binar-Android-Project/food-recipe-app/app/src/main/res/drawable/ic_splashscreen.xml" value="0.1195" />
+        <entry key="..\:/Binar-Android-Project/food-recipe-app/app/src/main/res/font/poppins_font.xml" value="0.2212962962962963" />
+        <entry key="..\:/Binar-Android-Project/food-recipe-app/app/src/main/res/font/roboto_font.xml" value="0.2212962962962963" />
+        <entry key="..\:/Binar-Android-Project/food-recipe-app/app/src/main/res/font/scada_font.xml" value="0.2212962962962963" />
+        <entry key="..\:/Binar-Android-Project/food-recipe-app/app/src/main/res/layout/activity_home.xml" value="0.22" />
+        <entry key="..\:/Binar-Android-Project/food-recipe-app/app/src/main/res/layout/activity_intro.xml" value="0.22447916666666667" />
+        <entry key="..\:/Binar-Android-Project/food-recipe-app/app/src/main/res/layout/activity_splash_screen.xml" value="0.14351851851851852" />
+        <entry key="..\:/Binar-Android-Project/food-recipe-app/app/src/main/res/layout/fragment_intro_page.xml" value="0.22" />
+        <entry key="..\:/Binar-Android-Project/food-recipe-app/app/src/main/res/layout/layout_intro_one.xml" value="0.22447916666666667" />
+        <entry key="..\:/Binar-Android-Project/food-recipe-app/app/src/main/res/layout/layout_intro_three.xml" value="0.22447916666666667" />
+        <entry key="..\:/Binar-Android-Project/food-recipe-app/app/src/main/res/layout/layout_intro_two.xml" value="0.22447916666666667" />
       </map>
     </option>
   </component>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.allana.food_recipe_app">
 
     <application
@@ -10,13 +11,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Foodrecipeapp">
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:name=".ui.intro.IntroActivity"
+            android:exported="false" />
         <activity
-            android:name=".edit_delete.EditDeleteActivity"
-            android:exported="true">
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.allana.food_recipe_app.ui.home.HomeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.splashscreen.SplashScreen"
+            android:exported="true"
+            android:theme="@style/Theme.Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -18,4 +18,15 @@
     <string name="text_title_tags">Desert, Summer, Fruity, Dairy</string>
     <string name="text_btn_detile">Detail</string>
     <string name="text_dsc_category">Beef is the culinary name for meat from cattle, particularly skeletal muscle. Humans have been eating beef since prehistori</string>
+    <string name="text_copy_link_image">Copy Link Image</string>
+    <string name="text_hint_link_image">Link Image</string>
+    <string name="text_hint_recipe_ingredients">Ingredients</string>
+    <string name="text_recipe_categories">Categories</string>
+    <string name="text_recipe_instructions">Instructions</string>
+    <string name="text_ingredients">Ingredients</string>
+    <string name="text_instructions">Instructions</string>
+    <string name="text_hint_recipe_name">Recipe Name</string>
+    <string name="text_hint_recipe">Recipe</string>
+    <string name="btn_save_recipe">SAVE</string>
+
 </resources>

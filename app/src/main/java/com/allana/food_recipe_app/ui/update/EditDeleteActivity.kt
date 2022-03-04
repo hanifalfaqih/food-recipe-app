@@ -22,10 +22,11 @@ class EditDeleteActivity : AppCompatActivity() {
     }
     private fun initView() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = getString(R.string.text_action_bar_edit_delete_activity)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home) this.finish()
+        if (item.itemId == android.R.id.home) onBackPressed()
         return super.onOptionsItemSelected(item)
     }
 }

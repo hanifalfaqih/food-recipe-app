@@ -8,7 +8,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/btn_update_recipe"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
@@ -29,19 +29,19 @@
                 android:textSize="@dimen/_14ssp"
                 android:textColor="@color/black_font"/>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_recipe_input_link"
-                style="@style/TextInputLayoutStyle"
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:hint="@string/text_hint_link_image"
-                app:endIconMode="clear_text">
-                <com.google.android.material.textfield.TextInputEditText
+                android:background="@drawable/bg_input_text">
+
+                <EditText
                     android:id="@+id/et_recipe_input_link"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:maxLines="1" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    style="@style/EditTextStyleSingleLine" />
+
+            </FrameLayout>
 
             <TextView
                 android:id="@+id/tv_recipe_name"
@@ -53,17 +53,19 @@
                 android:textSize="@dimen/_14ssp"
                 android:textColor="@color/black_font" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_recipe_name"
-                style="@style/TextInputLayoutStyle"
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
-                app:endIconMode="clear_text">
-                <com.google.android.material.textfield.TextInputEditText
+                android:background="@drawable/bg_input_text">
+
+                <EditText
                     android:id="@+id/et_recipe_name"
-                    style="@style/TextEditLayoutStyle"
-                    android:inputType="text"
-                    android:maxLines="1" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/EditTextStyleSingleLine" />
+
+            </FrameLayout>
 
             <TextView
                 android:id="@+id/tv_recipe_categories"
@@ -75,15 +77,20 @@
                 android:textSize="@dimen/_14ssp"
                 android:textColor="@color/black_font"/>
 
-            <Spinner
-                android:id="@+id/spinner_categories"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                style="@style/SpinnerStyle"
-                android:entries="@array/categories"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"/>
+                android:background="@drawable/bg_input_text">
+
+                <Spinner
+                    android:id="@+id/spinner_categories"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    style="@style/SpinnerStyle"
+                    android:entries="@array/categories" />
+
+            </FrameLayout>
 
             <TextView
                 android:id="@+id/tv_recipe_ingredients"
@@ -95,17 +102,19 @@
                 android:textSize="@dimen/_14ssp"
                 android:textColor="@color/black_font" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_recipe_ingredients"
-                style="@style/TextInputLayoutStyle"
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
-                app:endIconMode="clear_text">
-                <com.google.android.material.textfield.TextInputEditText
+                android:background="@drawable/bg_input_text">
+
+                <EditText
                     android:id="@+id/et_recipe_ingredients"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textMultiLine" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    style="@style/EditTextStyleMultiLine" />
+
+            </FrameLayout>
 
             <TextView
                 android:id="@+id/tv_recipe_instructions"
@@ -117,53 +126,36 @@
                 android:textColor="@color/black_font"
                 android:textSize="@dimen/_14ssp"/>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_recipe_instruction"
-                style="@style/TextInputLayoutStyle"
-                app:endIconMode="clear_text">
-                <com.google.android.material.textfield.TextInputEditText
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/bg_input_text">
+
+                <EditText
                     android:id="@+id/et_recipe_instructions"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textMultiLine" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    style="@style/EditTextStyleMultiLine" />
+
+            </FrameLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_update_recipe"
+                style="@style/ButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_42sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/btn_update_recipe" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_delete_recipe"
+                style="@style/ButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_42sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_22sdp"
+                android:text="@string/btn_delete_recipe" />
 
         </LinearLayout>
     </ScrollView>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_update_recipe"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_42sdp"
-        android:layout_marginStart="@dimen/_22sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_22sdp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="@string/btn_update_recipe"
-        android:textAllCaps="true"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_14ssp"
-        app:backgroundTint="@color/primary"
-        app:cornerRadius="@dimen/_10sdp"
-        app:layout_constraintBottom_toTopOf="@id/btn_delete_recipe"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_delete_recipe"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_42sdp"
-        android:layout_marginStart="@dimen/_22sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_22sdp"
-        android:layout_marginBottom="@dimen/_22sdp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="@string/btn_delete_recipe"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_14ssp"
-        app:backgroundTint="@color/primary"
-        app:cornerRadius="@dimen/_10sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

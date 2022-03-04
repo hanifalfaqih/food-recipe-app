@@ -1,21 +1,18 @@
-package com.allana.food_recipe_app.ui.update
+package com.allana.food_recipe_app.ui.editdelete
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.aemerse.slider.model.CarouselItem
 import com.allana.food_recipe_app.R
-import com.allana.food_recipe_app.databinding.ActivityEditDeleteBinding
+import com.allana.food_recipe_app.databinding.ActivityEditDeleteRecipeBinding
 
-class EditDeleteActivity : AppCompatActivity() {
+class EditDeleteRecipeActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityEditDeleteBinding
+    private lateinit var binding: ActivityEditDeleteRecipeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityEditDeleteBinding.inflate(layoutInflater)
+        binding = ActivityEditDeleteRecipeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         initView()

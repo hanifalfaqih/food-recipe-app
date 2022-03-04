@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.allana.food_recipe_app.databinding.ActivityHomeBinding
 import com.allana.food_recipe_app.data.datasource.RecipeDataSource
 import com.allana.food_recipe_app.data.model.Recipe
+import com.allana.food_recipe_app.ui.add.AddRecipeActivity
 import com.allana.food_recipe_app.ui.home.adapter.HomeAdapter
-import com.allana.food_recipe_app.ui.update.EditDeleteActivity
 
 class HomeActivity : AppCompatActivity() {
 
@@ -30,7 +30,7 @@ class HomeActivity : AppCompatActivity() {
 
     private fun initView() {
         binding.fabAdd.setOnClickListener {
-            startActivity(Intent(this, EditDeleteActivity::class.java))
+            startActivity(Intent(this, AddRecipeActivity::class.java))
             Toast.makeText(this, "click", Toast.LENGTH_SHORT).show()
         }
     }

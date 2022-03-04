@@ -10,7 +10,8 @@
         <entry key="app/src/main/res/drawable/my_background.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/spinner_bg_color.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/text_input_layout_color_state.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_edit_delete.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_add.xml" value="0.17" />
+        <entry key="app/src/main/res/layout/activity_edit_delete.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.10511651469098278" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.5933806146572104" />
       </map>

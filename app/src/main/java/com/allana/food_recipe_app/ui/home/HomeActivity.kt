@@ -12,7 +12,6 @@ import com.allana.food_recipe_app.data.model.Recipe
 import com.allana.food_recipe_app.ui.detail.DetailActivity
 import com.allana.food_recipe_app.ui.add.AddRecipeActivity
 import com.allana.food_recipe_app.ui.home.adapter.HomeAdapter
-import com.allana.food_recipe_app.ui.update.EditDeleteActivity
 
 class HomeActivity : AppCompatActivity(), RecyclerViewClickListener {
 

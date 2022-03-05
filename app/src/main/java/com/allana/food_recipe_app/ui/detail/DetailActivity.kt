@@ -3,17 +3,14 @@ package com.allana.food_recipe_app.ui.detail
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import com.allana.food_recipe_app.R
-import com.allana.food_recipe_app.data.datasource.RecipeDataSource
-import com.allana.food_recipe_app.data.model.Recipe
 import com.allana.food_recipe_app.databinding.ActivityDetailBinding
-import com.allana.food_recipe_app.ui.home.adapter.HomeAdapter
-import com.allana.food_recipe_app.ui.update.EditDeleteActivity
+import com.allana.food_recipe_app.ui.editdelete.EditDeleteRecipeActivity
 
 class DetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailBinding
-    private lateinit var homeAdapter: HomeAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +21,15 @@ class DetailActivity : AppCompatActivity() {
         setClickListeners()
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) onBackPressed()
+        return super.onOptionsItemSelected(item)
+    }
+
     private fun initView(){
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = getString(R.string.text_detail_recipe)
+
         binding.ivDetailRecipe
         binding.tvTitleDetail
         binding.tvCategoryDetail
@@ -32,14 +37,10 @@ class DetailActivity : AppCompatActivity() {
         binding.tvInstructionDetail
     }
 
-    private fun setupAdapter() {
-        val data = RecipeDataSource.createDataSet()
-        homeAdapter.submitList(data)
-    }
 
     private fun setClickListeners(){
         binding.btnUpdateDetail.setOnClickListener {
-            startActivity(Intent(this,EditDeleteActivity::class.java))
+            startActivity(Intent(this,EditDeleteRecipeActivity::class.java))
         }
     }
 }

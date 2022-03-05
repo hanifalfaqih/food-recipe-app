@@ -38,6 +38,7 @@
     <string name="btn_update_detail">Update Recipe</string>
     <string name="text_action_bar_edit_delete_activity">Edit Delete Recipe</string>
     <string name="text_action_bar_add_activity">Add Recipe</string>
+    <string name="text_detail_recipe">Detail Recipe</string>
 
     <string-array name="categories">
         <item>Beef</item>

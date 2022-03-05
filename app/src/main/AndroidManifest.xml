@@ -19,7 +19,6 @@
             android:theme="@style/Theme.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -38,6 +37,16 @@
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Home" />
+        activity
+            android:name=".ui.editdelete.EditDeleteRecipeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Home" />
+        <activity
+            android:name=".ui.add.AddRecipeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Home"/>
         <activity
             android:name=".ui.update.EditDeleteActivity"
             android:exported="false"

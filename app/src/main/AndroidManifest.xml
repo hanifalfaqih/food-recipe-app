@@ -36,22 +36,17 @@
             android:name=".ui.detail.DetailActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Home" />
-        activity
-            android:name=".ui.editdelete.EditDeleteRecipeActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.Home" />
+            android:theme="@style/Theme.Home.ActionBar" />
         <activity
             android:name=".ui.add.AddRecipeActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Home"/>
+            android:theme="@style/Theme.Home.ActionBar"/>
         <activity
-            android:name=".ui.update.EditDeleteActivity"
+            android:name=".ui.editdelete.EditDeleteRecipeActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Home" />
+            android:theme="@style/Theme.Home.ActionBar" />
     </application>
 
 </manifest>

@@ -37,6 +37,11 @@
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Home" />
+        <activity
+            android:name=".ui.update.AddActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Home" />
     </application>
 
 </manifest>

@@ -34,6 +34,12 @@
     <string name="text_instructions">Instructions</string>
     <string name="text_save">Save</string>
     <string name="text_delete">Delete</string>
+    <string name="text_title_ingredients_detail">Ingredients</string>
+    <string name="text_title_instructions_title">Instructions</string>
+    <string name="btn_update_detail">Update Recipe</string>
+    <string name="text_action_bar_edit_delete_activity">Update Recipe</string>
+    <string name="text_action_bar_add_activity">Add Recipe</string>
+    <string name="text_detail_recipe">Detail Recipe</string>
 
     <string-array name="categories">
         <item>Beef</item>

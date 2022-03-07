@@ -49,8 +49,8 @@ interface RecipeDao {
 //    /**
 //     * Use to get list of categories with their recipes
 //     */
-//    @Transaction
-//    @Query("SELECT * FROM categories")
-//    fun getCategoriesAndRecipe(): List<CategoryRecipe>
+    @Transaction
+    @Query("SELECT * FROM categories")
+    fun getCategoriesAndRecipe(): List<CategoryRecipe>
 
 }

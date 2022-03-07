@@ -15,8 +15,7 @@ import com.allana.food_recipe_app.data.local.room.datasource.RecipeDataSourceImp
 import com.allana.food_recipe_app.data.local.room.entity.Category
 import com.allana.food_recipe_app.data.local.room.entity.Recipe
 import com.allana.food_recipe_app.databinding.ActivityDetailBinding
-import com.allana.food_recipe_app.ui.home.form.EditDeleteRecipeActivity
-import com.allana.food_recipe_app.utils.CommonConstant
+import com.allana.food_recipe_app.ui.home.form.editdelete.EditDeleteRecipeActivity
 import com.bumptech.glide.RequestManager
 
 class DetailActivity :
@@ -52,14 +51,13 @@ class DetailActivity :
 
     override fun observeData() {
         super.observeData()
-        getViewModel().getResultRecipeLiveData().observe(this){
-            when(it.first){
-                CommonConstant.UPDATE_OPERATION -> {
-                    if (it.second is Resource.Success){
-                        Log.d(TAG, "success")
-                    } else {
-                        Log.d(TAG,"error")
-                    }
+        getViewModel().getResultRecipeLiveData().observe(this){ resource ->
+            when(resource){
+                is Resource.Success -> {
+                    Log.d(TAG, "success")
+                }
+                else -> {
+                    Log.d(TAG, "success")
                 }
             }
         }

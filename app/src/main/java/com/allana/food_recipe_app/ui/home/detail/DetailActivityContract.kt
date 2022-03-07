@@ -11,7 +11,7 @@ interface DetailActivityContract {
     }
 
     interface ViewModel: BaseContract.BaseViewModel {
-        fun getResultRecipeLiveData(): MutableLiveData<Pair<String, Resource<Number>>>
+        fun getResultRecipeLiveData(): MutableLiveData<Resource<Number>>
         fun updateRecipe(recipe: Recipe)
     }
 

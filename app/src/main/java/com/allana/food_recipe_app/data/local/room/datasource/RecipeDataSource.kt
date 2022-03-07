@@ -1,6 +1,5 @@
 package com.allana.food_recipe_app.data.local.room.datasource
 
-import com.allana.food_recipe_app.data.local.room.entity.Category
 import com.allana.food_recipe_app.data.local.room.entity.CategoryRecipe
 import com.allana.food_recipe_app.data.local.room.entity.Recipe
 

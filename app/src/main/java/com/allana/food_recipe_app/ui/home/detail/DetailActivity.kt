@@ -8,7 +8,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import com.allana.food_recipe_app.R
 import com.allana.food_recipe_app.databinding.ActivityDetailBinding
-import com.allana.food_recipe_app.ui.home.form.EditDeleteRecipeActivity
+import com.allana.food_recipe_app.ui.home.form.editdelete.EditDeleteRecipeActivity
 
 class DetailActivity : AppCompatActivity() {
 

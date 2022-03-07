@@ -4,14 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.allana.food_recipe_app.databinding.ActivityHomeBinding
 import com.allana.food_recipe_app.data.datasource.RecipeDataSource
 import com.allana.food_recipe_app.data.model.Recipe
 import com.allana.food_recipe_app.ui.home.detail.DetailActivity
 import com.allana.food_recipe_app.ui.home.adapter.HomeAdapter
-import com.allana.food_recipe_app.ui.home.form.AddRecipeActivity
+import com.allana.food_recipe_app.ui.home.form.add.AddRecipeActivity
 
 class HomeActivity : AppCompatActivity(), HomeListContract {
 

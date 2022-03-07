@@ -13,7 +13,7 @@ data class Recipe(
     @PrimaryKey(autoGenerate = true)
     val idRecipe: Int = 0,
     @ColumnInfo(name = "idCategoryRecipe")
-    var idCategoryRecipe: Int = 0,
+    var idCategoryRecipe: Int,
     @ColumnInfo(name = "recipeName")
     var recipeName: String?,
     @ColumnInfo(name = "recipeIngredient")
@@ -26,8 +26,8 @@ data class Recipe(
 
 @Entity(tableName = "categories")
 data class Category(
-    @PrimaryKey(autoGenerate = true)
-    val idCategory: Int = 0,
+    @PrimaryKey
+    val idCategory: Int,
     @ColumnInfo(name = "categoryName")
     var categoryName: String?,
 )

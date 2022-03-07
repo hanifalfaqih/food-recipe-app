@@ -23,4 +23,7 @@ interface RecipeDao {
 
     @Insert
     suspend fun insertCategory(category: Category): Long
+
+    @Update
+    suspend fun updateRecipe(recipe: Recipe): Int
 }

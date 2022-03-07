@@ -10,4 +10,6 @@ interface RecipeDataSource {
     suspend fun insertRecipe(recipe: List<Recipe>)
 
     suspend fun insertCategory(category: Category): Long
+
+    suspend fun updateRecipe(recipe: Recipe): Int
 }

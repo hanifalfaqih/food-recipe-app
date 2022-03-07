@@ -17,4 +17,8 @@ class RecipeDataSourceImpl(private val dao: RecipeDao) : RecipeDataSource {
     override suspend fun insertCategory(category: Category): Long {
         return dao.insertCategory(category)
     }
+
+    override suspend fun updateRecipe(recipe: Recipe): Int {
+        return dao.updateRecipe(recipe)
+    }
 }

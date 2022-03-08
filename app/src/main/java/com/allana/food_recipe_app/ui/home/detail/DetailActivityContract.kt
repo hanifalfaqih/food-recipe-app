@@ -11,11 +11,11 @@ interface DetailActivityContract {
     }
 
     interface ViewModel: BaseContract.BaseViewModel {
-        fun getResultRecipeLiveData(): MutableLiveData<Resource<Number>>
-        fun updateRecipe(recipe: Recipe)
+        fun getResultRecipeLiveData(): MutableLiveData<Resource<List<Recipe>>>
+        fun showRecipe(idRecipe: Int): List<Recipe>
     }
 
     interface Repository: BaseContract.BaseRepository {
-        suspend fun updateRecipe(recipe: Recipe): Int
+        suspend fun showRecipe(idRecipe: Int): List<Recipe>
     }
 }

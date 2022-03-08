@@ -21,6 +21,10 @@ class RecipeDataSourceImpl(private val dao: RecipeDao) : RecipeDataSource {
         return dao.deleteRecipe(recipe)
     }
 
+    override suspend fun showRecipe(idRecipe: Int): List<Recipe> {
+        return dao.showRecipe(idRecipe)
+    }
+
 
     //    override suspend fun insertRecipe(recipe: List<Recipe>) {
 //        return dao.insertRecipe(recipe)

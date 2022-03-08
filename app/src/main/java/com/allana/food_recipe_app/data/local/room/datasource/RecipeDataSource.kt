@@ -12,6 +12,8 @@ interface RecipeDataSource {
 
     suspend fun deleteRecipe(recipe: Recipe): Int
 
+    suspend fun showRecipe(idRecipe: Int): List<Recipe>
+
 //    suspend fun insertRecipe(recipe: List<Recipe>)
 //
 //    suspend fun insertCategory(category: Category): Long

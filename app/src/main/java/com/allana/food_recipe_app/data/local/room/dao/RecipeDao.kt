@@ -33,6 +33,9 @@ interface RecipeDao {
     @Delete
     suspend fun deleteRecipe(recipe: Recipe): Int
 
+    @Query("SELECT * FROM RECIPES WHERE IDRECIPE == :idRecipe")
+    suspend fun showRecipe(idRecipe : Int): List<Recipe>
+
     /**
      * Use to prepopulate data category
      * Insert all data category with list

@@ -13,14 +13,14 @@ class DetailActivityViewModel(
     private val repository: DetailActivityContract.Repository
     ): DetailActivityContract.ViewModel, BaseViewModelImpl() {
 
-    private val resultRecipeLiveData = MutableLiveData<Resource<Number>>()
+    private val resultRecipeLiveData = MutableLiveData<Resource<List<Recipe>>>()
 
-    override fun updateRecipe(recipe: Recipe) {
+    override fun showRecipe(idRecipe: Int): List<Recipe> {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val result = repository.updateRecipe(recipe)
+                val result = repository.showRecipe(idRecipe)
                 viewModelScope.launch(Dispatchers.Main) {
-                    if (result > 0) {
+                    if (result == repository){
                         resultRecipeLiveData.value = Resource.Success(result)
                     } else {
                         resultRecipeLiveData.value = Resource.Error("", result)
@@ -32,7 +32,8 @@ class DetailActivityViewModel(
                 }
             }
         }
+        return showRecipe(idRecipe)
     }
 
-    override fun getResultRecipeLiveData(): MutableLiveData<Resource<Number>> = resultRecipeLiveData
+    override fun getResultRecipeLiveData(): MutableLiveData<Resource<List<Recipe>>> = resultRecipeLiveData
 }

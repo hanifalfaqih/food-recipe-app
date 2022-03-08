@@ -28,22 +28,22 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Intro" />
         <activity
-            android:name=".ui.home.HomeActivity"
+            android:name=".ui.main.home.HomeActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Home.ActionBar" />
         <activity
-            android:name="com.allana.food_recipe_app.ui.home.detail.DetailActivity"
+            android:name="com.allana.food_recipe_app.ui.main.detail.DetailActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Home.ActionBar" />
         <activity
-            android:name="com.allana.food_recipe_app.ui.home.form.editdelete.EditDeleteRecipeActivity"
+            android:name="com.allana.food_recipe_app.ui.main.form.editdelete.EditDeleteRecipeActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Home.ActionBar" />
         <activity
-            android:name="com.allana.food_recipe_app.ui.home.form.add.AddRecipeActivity"
+            android:name="com.allana.food_recipe_app.ui.main.form.add.AddRecipeActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Home.ActionBar" />

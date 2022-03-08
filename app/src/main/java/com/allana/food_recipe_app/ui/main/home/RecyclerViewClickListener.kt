@@ -1,10 +1,8 @@
-package com.allana.food_recipe_app.ui.home
+package com.allana.food_recipe_app.ui.main.home
 
 import android.view.View
 import com.allana.food_recipe_app.data.model.Recipe
 
-interface HomeListContract {
+interface RecyclerViewClickListener {
     fun onItemClicked(view: View, recipe: Recipe)
-    fun setupSwipeRefresh()
-    fun setupRecycler()
 }

@@ -42,6 +42,7 @@
     <string name="text_detail_recipe">Detail Recipe</string>
     <string name="text_success_add_recipe">Success add recipe!</string>
     <string name="text_failed_add_recipe">Failed add recipe!</string>
+    <string name="text_welcome">Add your Popular Meal and lets get started</string>
 
     <string-array name="categories">
         <item>Beef</item>

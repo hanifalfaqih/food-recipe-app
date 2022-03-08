@@ -1,4 +1,4 @@
-package com.allana.food_recipe_app.ui.home.detail
+package com.allana.food_recipe_app.ui.main.detail
 
 import android.content.Intent
 import android.graphics.Color
@@ -8,7 +8,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import com.allana.food_recipe_app.R
 import com.allana.food_recipe_app.databinding.ActivityDetailBinding
-import com.allana.food_recipe_app.ui.home.form.editdelete.EditDeleteRecipeActivity
+import com.allana.food_recipe_app.ui.main.form.editdelete.EditDeleteRecipeActivity
 
 class DetailActivity : AppCompatActivity() {
 

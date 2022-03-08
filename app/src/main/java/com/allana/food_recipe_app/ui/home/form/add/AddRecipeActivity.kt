@@ -71,19 +71,19 @@ class AddRecipeActivity: BaseActivity<ActivityAddRecipeBinding, AddRecipeViewMod
         when {
             recipeImage.isEmpty() -> {
                 isFormValid = false
-                getViewBinding().etRecipeInputLink.error = "Please enter link image"
+                getViewBinding().etRecipeInputLink.error = getString(R.string.text_error_et_recipe_image)
             }
             recipeName.isEmpty() -> {
                 isFormValid = false
-                getViewBinding().etRecipeName.error = "Please enter recipe name"
+                getViewBinding().etRecipeName.error = getString(R.string.text_error_et_recipe_name)
             }
             recipeIngredients.isEmpty() -> {
                 isFormValid = false
-                getViewBinding().etRecipeIngredients.error = "Please enter recipe ingredients"
+                getViewBinding().etRecipeIngredients.error = getString(R.string.text_error_et_recipe_ingredients)
             }
             recipeInstructions.isEmpty() -> {
                 isFormValid = false
-                getViewBinding().etRecipeInstructions.error = "Please enter recipe instructions"
+                getViewBinding().etRecipeInstructions.error = getString(R.string.text_error_et_recipe_instructions)
             }
             else -> {
                 isFormValid = true

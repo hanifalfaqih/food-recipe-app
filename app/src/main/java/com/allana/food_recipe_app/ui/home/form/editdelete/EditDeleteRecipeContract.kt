@@ -7,6 +7,7 @@ import com.allana.food_recipe_app.data.local.room.entity.Recipe
 
 interface EditDeleteRecipeContract {
     interface View : BaseContract.BaseView {
+        fun getIntentData()
         fun showToast(msg: String)
     }
 

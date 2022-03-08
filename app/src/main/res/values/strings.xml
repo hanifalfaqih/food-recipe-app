@@ -42,6 +42,13 @@
     <string name="text_detail_recipe">Detail Recipe</string>
     <string name="text_success_add_recipe">Success add recipe!</string>
     <string name="text_failed_add_recipe">Failed add recipe!</string>
+    <string name="text_error_et_recipe_image">Please enter link image</string>
+    <string name="text_error_et_recipe_name">Please enter recipe name</string>
+    <string name="text_error_et_recipe_ingredients">Please enter recipe ingredients</string>
+    <string name="text_error_et_recipe_instructions">Please enter recipe instructions</string>
+    <string name="text_alert_dialog_title">Cancel</string>
+    <string name="text_alert_dialog_message">Are you sure to cancel without update all changes in this form? All changes you\'ve made will be delete</string>
+    <string name="text_negative_button">No</string>
 
     <string-array name="categories">
         <item>Beef</item>

@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.allana.food_recipe_app.data.local.room.entity.Category
 import com.allana.food_recipe_app.data.local.room.entity.Recipe
-import com.allana.food_recipe_app.data.local.room.entity.populateData
 import com.allana.food_recipe_app.databinding.ItemRecipeBinding
 import com.bumptech.glide.Glide
 
@@ -13,19 +12,22 @@ class HomeAdapter(private val itemClick: (Recipe) -> Unit) :
     RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
 
     private var items: MutableList<Recipe> = mutableListOf()
+    private var allCategory: MutableList<Category> = mutableListOf()
 
-    fun setItems(items: List<Recipe>) {
+    fun setItems(items: Pair<List<Recipe>, List<Category>>) {
         clearItems()
-        addItems(items)
+        allCategory.clear()
+        allCategory.addAll(items.second)
+        addItems(items.first)
         notifyDataSetChanged()
     }
 
-    fun addItems(items: List<Recipe>) {
+    private fun addItems(items: List<Recipe>) {
         this.items.addAll(items)
         notifyDataSetChanged()
     }
 
-    fun clearItems() {
+    private fun clearItems() {
         this.items.clear()
         notifyDataSetChanged()
     }
@@ -37,7 +39,7 @@ class HomeAdapter(private val itemClick: (Recipe) -> Unit) :
     }
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
-        holder.bindView(items[position])
+        holder.bindView(items[position], allCategory)
     }
 
     override fun getItemCount(): Int = items.size
@@ -47,21 +49,19 @@ class HomeAdapter(private val itemClick: (Recipe) -> Unit) :
         val itemClick: (Recipe) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bindView(item: Recipe) {
+        fun bindView(item: Recipe, allCategory: List<Category>) {
             with(item) {
-                val categories = ArrayList<Category>()
-                var categoryName: String? = null
-
-                for (category in categories) {
-                    if (category.idCategory == item.idCategoryRecipe) {
-                        category.categoryName = categoryName
-                    }
+                val category = allCategory.firstOrNull{ category ->
+                    category.idCategory == item.idCategoryRecipe
                 }
+
+                category?.let{
+                    binding.tvCategory.text = it.categoryName
+                }
+
                 Glide.with(itemView)
                     .load(item.recipeImage)
                     .into(binding.ivFood)
-
-                binding.tvCategory.text = categoryName
 
                 itemView.setOnClickListener {
                     itemClick(this)

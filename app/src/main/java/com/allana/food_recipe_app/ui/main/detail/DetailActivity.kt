@@ -15,19 +15,17 @@ import com.allana.food_recipe_app.data.local.room.datasource.RecipeDataSourceImp
 import com.allana.food_recipe_app.data.local.room.entity.Category
 import com.allana.food_recipe_app.data.local.room.entity.Recipe
 import com.allana.food_recipe_app.databinding.ActivityDetailBinding
-import com.allana.food_recipe_app.ui.home.detail.DetailActivityContract
 import com.allana.food_recipe_app.ui.home.detail.DetailActivityRepository
 import com.allana.food_recipe_app.ui.home.detail.DetailActivityViewModel
 import com.allana.food_recipe_app.ui.main.form.editdelete.EditDeleteRecipeActivity
 import com.bumptech.glide.Glide
-import com.bumptech.glide.RequestManager
 
 class DetailActivity :
     BaseActivity<ActivityDetailBinding, DetailActivityViewModel>(ActivityDetailBinding::inflate),
     DetailActivityContract.View {
 
     private var recipe: Recipe? = null
-    private var category: Category? = null
+    private var allCategory: List<Category>? = null
 
     companion object{
         private val TAG = DetailActivity::class.simpleName
@@ -75,6 +73,7 @@ class DetailActivity :
             when(resource){
                 is Resource.Success -> {
                     Log.d(TAG, "success")
+                    allCategory = resource.data?.second
                 }
                 else -> {
                     Log.d(TAG, "success")
@@ -84,16 +83,22 @@ class DetailActivity :
     }
 
     private fun initializeRecipe(){
-        recipe?.let {
+        recipe?.let { recipe ->
+            val category = allCategory?.firstOrNull{ category ->
+                category.idCategory == recipe.idCategoryRecipe
+            }
+            category?.let{
+                getViewBinding().tvCategoryDetail.text = it.categoryName
+            }
+
             Glide.with(this@DetailActivity)
-                .load(it.recipeImage)
+                .load(recipe.recipeImage)
                 .into(getViewBinding().ivDetailRecipe)
-            getViewBinding().tvTitleDetail.text = recipe?.recipeName
-            getViewBinding().tvCategoryDetail.text = category?.categoryName
+            getViewBinding().tvTitleDetail.text = recipe.recipeName
             getViewBinding().tvTitleIngredientsDetail.text = getString(R.string.text_title_ingredients)
-            getViewBinding().tvIngredientDetail.text = recipe?.recipeIngredient
+            getViewBinding().tvIngredientDetail.text = recipe.recipeIngredient
             getViewBinding().tvTitleInstructionsRecipe.text = getString(R.string.text_title_instruction)
-            getViewBinding().tvInstructionDetail.text = recipe?.recipeInstruction
+            getViewBinding().tvInstructionDetail.text = recipe.recipeInstruction
         }
     }
 

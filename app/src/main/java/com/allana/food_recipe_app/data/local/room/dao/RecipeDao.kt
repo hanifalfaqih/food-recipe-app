@@ -14,6 +14,9 @@ interface RecipeDao {
     @Query("SELECT * FROM recipes")
     suspend fun getAllRecipe(): List<Recipe>
 
+    @Query("SELECT * FROM categories")
+    suspend fun getAllCategory(): List<Category>
+
     @Insert
     suspend fun insertRecipe(recipe: Recipe): Long
 
@@ -25,6 +28,7 @@ interface RecipeDao {
 
     @Query("SELECT * FROM RECIPES WHERE IDRECIPE == :idRecipe")
     suspend fun showRecipe(idRecipe : Int): List<Recipe>
+
 
     /**
      * Use to prepopulate data category
@@ -41,7 +45,7 @@ interface RecipeDao {
 //    @Query("SELECT * FROM categories")
 //    fun getCategoriesAndRecipe(): List<CategoryRecipe>
 
-    //    @Transaction
+//    @Transaction
 //    suspend fun addCategoryRecipe(category: Category, items: List<Recipe>) {
 //        val listId = insertCategory(category)
 //
@@ -49,7 +53,7 @@ interface RecipeDao {
 //        insertRecipe(items)
 //    }
 
-    //    @Insert
+//    @Insert
 //    suspend fun insertRecipe(recipe: List<Recipe>)
 //
 //    @Insert

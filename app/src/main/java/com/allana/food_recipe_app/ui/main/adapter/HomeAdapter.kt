@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.allana.food_recipe_app.data.local.room.entity.Category
 import com.allana.food_recipe_app.data.local.room.entity.Recipe
+import com.allana.food_recipe_app.data.local.room.entity.populateData
 import com.allana.food_recipe_app.databinding.ItemRecipeBinding
 import com.bumptech.glide.Glide
 
@@ -56,7 +57,6 @@ class HomeAdapter(private val itemClick: (Recipe) -> Unit) :
                         category.categoryName = categoryName
                     }
                 }
-
                 Glide.with(itemView)
                     .load(item.recipeImage)
                     .into(binding.ivFood)

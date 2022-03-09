@@ -16,6 +16,7 @@ import com.allana.food_recipe_app.data.local.room.RecipeDatabase
 import com.allana.food_recipe_app.data.local.room.datasource.RecipeDataSourceImpl
 import com.allana.food_recipe_app.data.local.room.entity.Recipe
 import com.allana.food_recipe_app.databinding.ActivityEditDeleteRecipeBinding
+import com.allana.food_recipe_app.ui.main.home.HomeActivity
 import com.allana.food_recipe_app.ui.util.ActionConstant.ACTION_DELETE
 import com.allana.food_recipe_app.ui.util.ActionConstant.ACTION_UPDATE
 
@@ -70,6 +71,9 @@ class EditDeleteRecipeActivity : BaseActivity<ActivityEditDeleteRecipeBinding, E
         getViewBinding().btnDeleteRecipe.setOnClickListener {
             recipe?.let {
                 getViewModel().deleteRecipe(it)
+                val intent = Intent(this,HomeActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
             }
         }
     }
@@ -119,7 +123,11 @@ class EditDeleteRecipeActivity : BaseActivity<ActivityEditDeleteRecipeBinding, E
                 idCategoryRecipe = getViewBinding().spinnerCategories.selectedItemPosition
             }
             recipe?.let { getViewModel().updateRecipe(it) }
+            val intent = Intent(this,HomeActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
         }
+
     }
 
     private fun initializeRecipe() {

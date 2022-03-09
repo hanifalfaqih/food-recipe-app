@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import com.allana.food_recipe_app.R
 import com.allana.food_recipe_app.data.local.preference.UserPreference
-import com.allana.food_recipe_app.ui.home.HomeActivity
+import com.allana.food_recipe_app.ui.main.home.HomeActivity
 import com.allana.food_recipe_app.ui.intro.IntroActivity
 
 class SplashScreen : AppCompatActivity() {

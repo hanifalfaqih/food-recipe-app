@@ -8,6 +8,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.allana.food_recipe_app.data.local.room.dao.RecipeDao
 import com.allana.food_recipe_app.data.local.room.entity.Category
 import com.allana.food_recipe_app.data.local.room.entity.Recipe
+import com.allana.food_recipe_app.data.local.room.entity.populateData
 import java.util.concurrent.Executors
 
 
@@ -18,21 +19,7 @@ abstract class RecipeDatabase : RoomDatabase() {
 
     companion object {
         private const val DB_NAME = "recipe_db"
-        val prepopulateData = listOf(
-            Category(0, "Beef"),
-            Category(1, "Breakfast"),
-            Category(2, "Chicken"),
-            Category(3, "Desert"),
-            Category(4, "Goat"),
-            Category(5, "Lamb"),
-            Category(6, "Miscellaneous"),
-            Category(7, "Pasta"),
-            Category(8, "Pork"),
-            Category(9, "Seafood"),
-            Category(10, "Side"),
-            Category(11, "Starter"),
-            Category(12, "Vegan"),
-            Category(13, "Vegetarian"))
+
 
         @Volatile
         private var INSTANCE: RecipeDatabase? = null
@@ -47,12 +34,11 @@ abstract class RecipeDatabase : RoomDatabase() {
                 ).addCallback(object: Callback() {
                     override fun onCreate(db: SupportSQLiteDatabase) {
                         super.onCreate(db)
-                        Executors.newSingleThreadExecutor().execute {
-                            getInstance(context).recipeDao().insertAllCategory(prepopulateData)
+                        Executors.newSingleThreadScheduledExecutor().execute {
+                            getInstance(context).recipeDao().insertAllCategory(populateData())
                         }
                     }
-                })
-                    .build()
+                }).build()
                 INSTANCE = instance
                 // return instance
                 instance

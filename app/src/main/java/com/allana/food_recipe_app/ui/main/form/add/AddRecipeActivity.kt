@@ -1,4 +1,4 @@
-package com.allana.food_recipe_app.ui.home.form.add
+package com.allana.food_recipe_app.ui.main.form.add
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -26,29 +26,27 @@ class AddRecipeActivity: BaseActivity<ActivityAddRecipeBinding, AddRecipeViewMod
 
     private fun setClickListener() {
         getViewBinding().btnSaveRecipe.setOnClickListener {
-            if (validateForm()) {
-                addRecipe()
-            }
+            addRecipe()
         }
     }
 
     override fun observeData() {
         super.observeData()
-        getViewModel().getRecipeResultLiveData().observe(this) { resource ->
-            when (resource) {
+        getViewModel().getRecipeResultLiveData().observe(this) {
+            when (it) {
                 is Resource.Success -> {
                     showToast(getString(R.string.text_success_add_recipe))
-                    this.finish()
                 }
                 else -> {
                     showToast(getString(R.string.text_failed_add_recipe))
-                    this.finish()
                 }
             }
+            this.finish()
         }
     }
 
     private fun addRecipe() {
+        if (validateForm()) {
             recipe = Recipe(
                 recipeName = getViewBinding().etRecipeName.text.toString(),
                 recipeIngredient = getViewBinding().etRecipeIngredients.text.toString(),
@@ -56,9 +54,8 @@ class AddRecipeActivity: BaseActivity<ActivityAddRecipeBinding, AddRecipeViewMod
                 recipeImage = getViewBinding().etRecipeInputLink.text.toString(),
                 idCategoryRecipe = getViewBinding().spinnerCategories.selectedItemPosition
             )
-            recipe?.let {
-                getViewModel().insertRecipe(it)
-            }
+            recipe?.let { getViewModel().insertRecipe(it) }
+        }
     }
 
     private fun validateForm(): Boolean {
@@ -71,19 +68,19 @@ class AddRecipeActivity: BaseActivity<ActivityAddRecipeBinding, AddRecipeViewMod
         when {
             recipeImage.isEmpty() -> {
                 isFormValid = false
-                getViewBinding().etRecipeInputLink.error = "Please enter link image"
+                getViewBinding().etRecipeInputLink.error = getString(R.string.text_error_et_recipe_image)
             }
             recipeName.isEmpty() -> {
                 isFormValid = false
-                getViewBinding().etRecipeName.error = "Please enter recipe name"
+                getViewBinding().etRecipeName.error = getString(R.string.text_error_et_recipe_name)
             }
             recipeIngredients.isEmpty() -> {
                 isFormValid = false
-                getViewBinding().etRecipeIngredients.error = "Please enter recipe ingredients"
+                getViewBinding().etRecipeIngredients.error = getString(R.string.text_error_et_recipe_ingredients)
             }
             recipeInstructions.isEmpty() -> {
                 isFormValid = false
-                getViewBinding().etRecipeInstructions.error = "Please enter recipe instructions"
+                getViewBinding().etRecipeInstructions.error = getString(R.string.text_error_et_recipe_instructions)
             }
             else -> {
                 isFormValid = true

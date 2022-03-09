@@ -1,4 +1,4 @@
-package com.allana.food_recipe_app.ui.home.detail
+package com.allana.food_recipe_app.ui.main.detail
 
 import android.content.Context
 import android.content.Intent
@@ -15,18 +15,33 @@ import com.allana.food_recipe_app.data.local.room.datasource.RecipeDataSourceImp
 import com.allana.food_recipe_app.data.local.room.entity.Category
 import com.allana.food_recipe_app.data.local.room.entity.Recipe
 import com.allana.food_recipe_app.databinding.ActivityDetailBinding
-import com.allana.food_recipe_app.ui.home.form.editdelete.EditDeleteRecipeActivity
+import com.allana.food_recipe_app.ui.home.detail.DetailActivityContract
+import com.allana.food_recipe_app.ui.home.detail.DetailActivityRepository
+import com.allana.food_recipe_app.ui.home.detail.DetailActivityViewModel
+import com.allana.food_recipe_app.ui.main.form.editdelete.EditDeleteRecipeActivity
+import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 
 class DetailActivity :
     BaseActivity<ActivityDetailBinding, DetailActivityViewModel>(ActivityDetailBinding::inflate),
-    DetailActivityContract.View{
+    DetailActivityContract.View {
 
-    private val TAG = DetailActivity::class.simpleName
-
-    lateinit var glide: RequestManager
     private var recipe: Recipe? = null
     private var category: Category? = null
+
+    companion object{
+        private val TAG = DetailActivity::class.simpleName
+        private const val INTENT_RECIPE_DATA_DETAIL = "INTENT_RECIPE_DATA"
+
+        @JvmStatic
+        fun startActivityToDetail(context: Context?, recipe: Recipe? = null){
+            val intent = Intent(context, DetailActivity::class.java)
+            recipe?.let {
+                intent.putExtra(INTENT_RECIPE_DATA_DETAIL, recipe)
+            }
+            context?.startActivity(intent)
+        }
+    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) onBackPressed()
@@ -38,8 +53,13 @@ class DetailActivity :
         supportActionBar?.title = getString(R.string.text_detail_recipe)
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#FF672C")))
 
+         getIntentData()
          initializeRecipe()
          setClickListeners()
+    }
+
+    override fun getIntentData() {
+        recipe = intent.getParcelableExtra(INTENT_RECIPE_DATA_DETAIL)
     }
 
     override fun initViewModel(): DetailActivityViewModel {
@@ -63,14 +83,11 @@ class DetailActivity :
         }
     }
 
-    override fun getIntentData() {
-        recipe = intent.getParcelableExtra(INTENT_RECIPE_DATA)
-    }
-
     private fun initializeRecipe(){
         recipe?.let {
-            recipe?.recipeImage =
-                glide.load(recipe!!.recipeImage).into(getViewBinding().ivDetailRecipe).toString()
+            Glide.with(this@DetailActivity)
+                .load(it.recipeImage)
+                .into(getViewBinding().ivDetailRecipe)
             getViewBinding().tvTitleDetail.text = recipe?.recipeName
             getViewBinding().tvCategoryDetail.text = category?.categoryName
             getViewBinding().tvTitleIngredientsDetail.text = getString(R.string.text_title_ingredients)
@@ -82,20 +99,8 @@ class DetailActivity :
 
     private fun setClickListeners(){
         getViewBinding().btnUpdateDetail.setOnClickListener {
-            startActivity(this)
+            EditDeleteRecipeActivity.startActivityToEditDelete(this, recipe)
         }
     }
-
-    companion object{
-        const val INTENT_RECIPE_DATA = "INTENT_RECIPE_DATA"
-
-        @JvmStatic
-        fun startActivity(context: Context?, recipe: Recipe? = null){
-            val intent = Intent(context, EditDeleteRecipeActivity::class.java)
-            intent.putExtra(INTENT_RECIPE_DATA, recipe)
-            context?.startActivity(intent)
-        }
-    }
-
 
 }

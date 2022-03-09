@@ -7,7 +7,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.allana.food_recipe_app.R
 import com.allana.food_recipe_app.data.local.preference.UserPreference
-import com.allana.food_recipe_app.ui.home.HomeActivity
+import com.allana.food_recipe_app.ui.main.home.HomeActivity
 import com.github.appintro.AppIntro2
 import com.github.appintro.AppIntroCustomLayoutFragment.Companion.newInstance
 

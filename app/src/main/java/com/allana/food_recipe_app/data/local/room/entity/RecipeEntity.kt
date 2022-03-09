@@ -31,3 +31,22 @@ data class Category(
     @ColumnInfo(name = "categoryName")
     var categoryName: String?,
 )
+
+fun populateData(): List<Category> {
+    return listOf(
+        Category(0, "Beef"),
+        Category(1, "Breakfast"),
+        Category(2, "Chicken"),
+        Category(3, "Desert"),
+        Category(4, "Goat"),
+        Category(5, "Lamb"),
+        Category(6, "Miscellaneous"),
+        Category(7, "Pasta"),
+        Category(8, "Pork"),
+        Category(9, "Seafood"),
+        Category(10, "Side"),
+        Category(11, "Starter"),
+        Category(12, "Vegan"),
+        Category(13, "Vegetarian")
+    )
+}

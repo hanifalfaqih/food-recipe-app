@@ -4,7 +4,7 @@ import com.allana.food_recipe_app.data.local.room.entity.CategoryRecipe
 import com.allana.food_recipe_app.data.local.room.entity.Recipe
 
 interface RecipeDataSource {
-    suspend fun getAllCategoryRecipe(): List<CategoryRecipe>
+    suspend fun getAllRecipe(): List<Recipe>
 
     suspend fun insertRecipe(recipe: Recipe): Long
 

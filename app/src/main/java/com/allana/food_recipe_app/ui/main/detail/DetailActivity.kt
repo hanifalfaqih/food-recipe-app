@@ -15,8 +15,7 @@ import com.allana.food_recipe_app.data.local.room.datasource.RecipeDataSourceImp
 import com.allana.food_recipe_app.data.local.room.entity.Category
 import com.allana.food_recipe_app.data.local.room.entity.Recipe
 import com.allana.food_recipe_app.databinding.ActivityDetailBinding
-import com.allana.food_recipe_app.ui.home.detail.DetailActivityRepository
-import com.allana.food_recipe_app.ui.home.detail.DetailActivityViewModel
+import com.allana.food_recipe_app.ui.main.adapter.HomeAdapter
 import com.allana.food_recipe_app.ui.main.form.editdelete.EditDeleteRecipeActivity
 import com.bumptech.glide.Glide
 
@@ -51,9 +50,12 @@ class DetailActivity :
         supportActionBar?.title = getString(R.string.text_detail_recipe)
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#FF672C")))
 
+
+
          getIntentData()
          initializeRecipe()
          setClickListeners()
+
     }
 
     override fun getIntentData() {
@@ -94,7 +96,7 @@ class DetailActivity :
             Glide.with(this@DetailActivity)
                 .load(recipe.recipeImage)
                 .into(getViewBinding().ivDetailRecipe)
-            getViewBinding().tvTitleDetail.text = recipe.recipeName
+            getViewBinding().tvTitleDetail.text = recipe.recipeName.toString().uppercase()
             getViewBinding().tvTitleIngredientsDetail.text = getString(R.string.text_title_ingredients)
             getViewBinding().tvIngredientDetail.text = recipe.recipeIngredient
             getViewBinding().tvTitleInstructionsRecipe.text = getString(R.string.text_title_instruction)

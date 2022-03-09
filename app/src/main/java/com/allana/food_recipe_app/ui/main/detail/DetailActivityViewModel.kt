@@ -1,4 +1,4 @@
-package com.allana.food_recipe_app.ui.home.detail
+package com.allana.food_recipe_app.ui.main.detail
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -6,7 +6,6 @@ import com.allana.food_recipe_app.data.base.arch.BaseViewModelImpl
 import com.allana.food_recipe_app.data.base.model.Resource
 import com.allana.food_recipe_app.data.local.room.entity.Category
 import com.allana.food_recipe_app.data.local.room.entity.Recipe
-import com.allana.food_recipe_app.ui.main.detail.DetailActivityContract
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.lang.Exception

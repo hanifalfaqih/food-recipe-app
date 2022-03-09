@@ -5,8 +5,8 @@ import com.allana.food_recipe_app.data.local.room.entity.CategoryRecipe
 import com.allana.food_recipe_app.data.local.room.entity.Recipe
 
 class RecipeDataSourceImpl(private val dao: RecipeDao) : RecipeDataSource {
-    override suspend fun getAllCategoryRecipe(): List<CategoryRecipe> {
-        return dao.getCategoriesAndRecipe()
+    override suspend fun getAllRecipe(): List<Recipe> {
+        return dao.getAllRecipe()
     }
 
     override suspend fun insertRecipe(recipe: Recipe): Long {

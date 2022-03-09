@@ -10,16 +10,16 @@ interface HomeListContract {
     interface View : BaseContract.BaseView {
         fun setupRecyclerView()
         fun setupSwipeRefresh()
-        fun setListData(data: List<CategoryRecipe>)
+        fun setListData(data: List<Recipe>)
         fun getData()
     }
 
     interface ViewModel : BaseContract.BaseViewModel {
         fun getAllRecipe()
-        fun getRecipeLiveData(): MutableLiveData<Resource<List<CategoryRecipe>>>
+        fun getRecipeLiveData(): MutableLiveData<Resource<List<Recipe>>>
     }
 
     interface Repository : BaseContract.BaseRepository {
-        suspend fun getAllRecipe(): List<CategoryRecipe>
+        suspend fun getAllRecipe(): List<Recipe>
     }
 }

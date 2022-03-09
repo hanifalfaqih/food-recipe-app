@@ -26,29 +26,27 @@ class AddRecipeActivity: BaseActivity<ActivityAddRecipeBinding, AddRecipeViewMod
 
     private fun setClickListener() {
         getViewBinding().btnSaveRecipe.setOnClickListener {
-            if (validateForm()) {
-                addRecipe()
-            }
+            addRecipe()
         }
     }
 
     override fun observeData() {
         super.observeData()
-        getViewModel().getRecipeResultLiveData().observe(this) { resource ->
-            when (resource) {
+        getViewModel().getRecipeResultLiveData().observe(this) {
+            when (it) {
                 is Resource.Success -> {
                     showToast(getString(R.string.text_success_add_recipe))
-                    this.finish()
                 }
                 else -> {
                     showToast(getString(R.string.text_failed_add_recipe))
-                    this.finish()
                 }
             }
+            this.finish()
         }
     }
 
     private fun addRecipe() {
+        if (validateForm()) {
             recipe = Recipe(
                 recipeName = getViewBinding().etRecipeName.text.toString(),
                 recipeIngredient = getViewBinding().etRecipeIngredients.text.toString(),
@@ -56,9 +54,8 @@ class AddRecipeActivity: BaseActivity<ActivityAddRecipeBinding, AddRecipeViewMod
                 recipeImage = getViewBinding().etRecipeInputLink.text.toString(),
                 idCategoryRecipe = getViewBinding().spinnerCategories.selectedItemPosition
             )
-            recipe?.let {
-                getViewModel().insertRecipe(it)
-            }
+            recipe?.let { getViewModel().insertRecipe(it) }
+        }
     }
 
     private fun validateForm(): Boolean {

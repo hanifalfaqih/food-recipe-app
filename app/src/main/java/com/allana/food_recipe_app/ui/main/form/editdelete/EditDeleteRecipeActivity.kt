@@ -1,5 +1,7 @@
 package com.allana.food_recipe_app.ui.main.form.editdelete
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.MenuItem
@@ -9,14 +11,46 @@ import androidx.appcompat.app.AlertDialog
 import com.allana.food_recipe_app.R
 import com.allana.food_recipe_app.data.base.arch.BaseActivity
 import com.allana.food_recipe_app.data.base.arch.GenericViewModelFactory
+import com.allana.food_recipe_app.data.base.model.Resource
 import com.allana.food_recipe_app.data.local.room.RecipeDatabase
 import com.allana.food_recipe_app.data.local.room.datasource.RecipeDataSourceImpl
 import com.allana.food_recipe_app.data.local.room.entity.Recipe
 import com.allana.food_recipe_app.databinding.ActivityEditDeleteRecipeBinding
-import com.allana.food_recipe_app.ui.home.detail.DetailActivity.Companion.INTENT_RECIPE_DATA
+import com.allana.food_recipe_app.ui.util.ActionConstant.ACTION_DELETE
+import com.allana.food_recipe_app.ui.util.ActionConstant.ACTION_UPDATE
 
 class EditDeleteRecipeActivity : BaseActivity<ActivityEditDeleteRecipeBinding, EditDeleteRecipeViewModel>(
     ActivityEditDeleteRecipeBinding::inflate), EditDeleteRecipeContract.View{
+
+    companion object{
+        private const val INTENT_RECIPE_DATA_EDIT_DELETE = "INTENT_RECIPE_DATA_EDIT_DELETE"
+
+        @JvmStatic
+        fun startActivityToEditDelete(context: Context?, recipe: Recipe? = null){
+            val intent = Intent(context, EditDeleteRecipeActivity::class.java)
+            intent.putExtra(INTENT_RECIPE_DATA_EDIT_DELETE, recipe)
+            context?.startActivity(intent)
+        }
+    }
+
+    override fun observeData() {
+        super.observeData()
+        getViewModel().getRecipeResultLiveData().observe(this) {
+            when (it.first) {
+                ACTION_UPDATE -> {
+                    if (it.second is Resource.Success) {
+                        showToast(getString(R.string.text_success_update_recipe))
+                    } else showToast(getString(R.string.text_failed_update_recipe))
+                }
+                ACTION_DELETE -> {
+                    if (it.second is Resource.Success) {
+                        showToast(getString(R.string.text_success_delete_recipe))
+                    } else showToast(getString(R.string.text_failed_delete_recipe))
+                }
+            }
+            this.finish()
+        }
+    }
 
     private var recipe: Recipe? = null
 
@@ -31,15 +65,17 @@ class EditDeleteRecipeActivity : BaseActivity<ActivityEditDeleteRecipeBinding, E
 
     private fun setClickListener() {
         getViewBinding().btnUpdateRecipe.setOnClickListener {
-            if (validateForm()) {
-                updateRecipe()
-            }
+            updateRecipe()
         }
         getViewBinding().btnDeleteRecipe.setOnClickListener {
             recipe?.let {
                 getViewModel().deleteRecipe(it)
             }
         }
+    }
+
+    override fun getIntentData() {
+        recipe = intent.getParcelableExtra(INTENT_RECIPE_DATA_EDIT_DELETE)
     }
 
     private fun validateForm(): Boolean {
@@ -74,22 +110,22 @@ class EditDeleteRecipeActivity : BaseActivity<ActivityEditDeleteRecipeBinding, E
     }
 
     private fun updateRecipe() {
-        recipe = Recipe(
-            recipeName = getViewBinding().etRecipeName.text.toString(),
-            recipeIngredient = getViewBinding().etRecipeIngredients.text.toString(),
-            recipeInstruction = getViewBinding().etRecipeInstructions.text.toString(),
-            recipeImage = getViewBinding().etRecipeInputLink.text.toString(),
-            idCategoryRecipe = getViewBinding().spinnerCategories.selectedItemPosition
-        )
-        recipe?.let {
-            getViewModel().updateRecipe(it)
+        if (validateForm()) {
+            recipe = recipe?.copy()?.apply {
+                recipeName = getViewBinding().etRecipeName.text.toString()
+                recipeIngredient = getViewBinding().etRecipeIngredients.text.toString()
+                recipeInstruction = getViewBinding().etRecipeInstructions.text.toString()
+                recipeImage = getViewBinding().etRecipeInputLink.text.toString()
+                idCategoryRecipe = getViewBinding().spinnerCategories.selectedItemPosition
+            }
+            recipe?.let { getViewModel().updateRecipe(it) }
         }
     }
 
     private fun initializeRecipe() {
         recipe?.let {
             getViewBinding().etRecipeInputLink.setText(it.recipeImage)
-            getViewBinding().etRecipeName.setText(it.recipeImage)
+            getViewBinding().etRecipeName.setText(it.recipeName)
             getViewBinding().spinnerCategories.setSelection(it.idCategoryRecipe)
             getViewBinding().etRecipeIngredients.setText(it.recipeIngredient)
             getViewBinding().etRecipeInstructions.setText(it.recipeInstruction)
@@ -97,7 +133,7 @@ class EditDeleteRecipeActivity : BaseActivity<ActivityEditDeleteRecipeBinding, E
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home) handleOnBackPressedCallback()
+        if (item.itemId == android.R.id.home) showAlertDialog()
         return super.onOptionsItemSelected(item)
     }
 
@@ -127,22 +163,8 @@ class EditDeleteRecipeActivity : BaseActivity<ActivityEditDeleteRecipeBinding, E
         alertDialogBuilder.create().show()
     }
 
-    override fun getIntentData() {
-        recipe = intent.getParcelableExtra(INTENT_RECIPE_DATA)
-    }
-
     override fun showToast(msg: String) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-    }
-
-    private fun handleOnBackPressedCallback() {
-        val callback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() { showAlertDialog() }
-        }
-        this.onBackPressedDispatcher.addCallback(
-            this,
-            callback
-        )
     }
 
 }

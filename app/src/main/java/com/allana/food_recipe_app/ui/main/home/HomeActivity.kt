@@ -1,5 +1,6 @@
 package com.allana.food_recipe_app.ui.main.home
 
+import android.content.Intent
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import com.allana.food_recipe_app.R
@@ -9,8 +10,10 @@ import com.allana.food_recipe_app.data.base.model.Resource
 import com.allana.food_recipe_app.databinding.ActivityHomeBinding
 import com.allana.food_recipe_app.data.local.room.RecipeDatabase
 import com.allana.food_recipe_app.data.local.room.datasource.RecipeDataSourceImpl
-import com.allana.food_recipe_app.data.local.room.entity.CategoryRecipe
+import com.allana.food_recipe_app.data.local.room.entity.Recipe
 import com.allana.food_recipe_app.ui.main.adapter.HomeAdapter
+import com.allana.food_recipe_app.ui.main.detail.DetailActivity
+import com.allana.food_recipe_app.ui.main.form.add.AddRecipeActivity
 
 class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(ActivityHomeBinding::inflate),
     HomeListContract.View {
@@ -20,6 +23,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(ActivityHo
     override fun initView() {
         setupRecyclerView()
         setupSwipeRefresh()
+
+        getViewBinding().fabAdd.setOnClickListener {
+            startActivity(Intent(this, AddRecipeActivity::class.java))
+        }
     }
 
     override fun onResume() {
@@ -34,14 +41,14 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(ActivityHo
     }
 
     override fun setupRecyclerView() {
-        TODO("add intent, fixing recyclerView")
-//        adapter = HomeAdapter {
-//            //intent
-//        }
-//        getViewBinding().rvCategory.apply {
-//            layoutManager = GridLayoutManager(applicationContext, 2)
-//            adapter = this@HomeActivity.adapter
-//        }
+        // TODO("add intent, fixing recyclerView")
+        adapter = HomeAdapter {
+            DetailActivity.startActivityToDetail(this, it)
+        }
+        getViewBinding().rvCategory.apply {
+            layoutManager = GridLayoutManager(this@HomeActivity, 2)
+            adapter = this@HomeActivity.adapter
+        }
     }
 
     override fun setupSwipeRefresh() {
@@ -51,7 +58,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(ActivityHo
         }
     }
 
-    override fun setListData(data: List<CategoryRecipe>) {
+    override fun setListData(data: List<Recipe>) {
         adapter.setItems(data)
     }
 
@@ -59,19 +66,20 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(ActivityHo
         getViewModel().getAllRecipe()
     }
 
-    override fun showLoading(isLoading: Boolean) {
-        super.showLoading(isLoading)
-        getViewBinding().layoutWelcome.progressBar.isVisible = isLoading
+    override fun showLoading(isVisible: Boolean) {
+        super.showLoading(isVisible)
+        getViewBinding().layoutWelcome.progressBar.isVisible = isVisible
     }
 
-    override fun showContent(isContentVisible: Boolean) {
-        super.showContent(isContentVisible)
-        getViewBinding().rvCategory.isVisible = isContentVisible
+    override fun showContent(isVisible: Boolean) {
+        super.showContent(isVisible)
+        getViewBinding().rvCategory.isVisible = isVisible
     }
 
     override fun showError(isErrorEnabled: Boolean, msg: String?) {
         getViewBinding().layoutWelcome.tvMessage.isVisible = isErrorEnabled
         getViewBinding().layoutWelcome.tvMessage.text = msg
+        getViewBinding().layoutWelcome.ivWelcome.isVisible = isErrorEnabled
     }
 
     override fun observeData() {
@@ -84,14 +92,14 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(ActivityHo
                 }
                 is Resource.Success -> {
                     showLoading(false)
-                    it.data?.let { notes ->
-                        if (notes.isEmpty()) {
+                    it.data?.let { recipes ->
+                        if (recipes.isEmpty()) {
                             showError(true, getString(R.string.text_welcome))
                             showContent(false)
                         } else {
                             showError(false, null)
                             showContent(true)
-                            setListData(notes)
+                            setListData(recipes)
                         }
                     }
                 }

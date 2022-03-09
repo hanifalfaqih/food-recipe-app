@@ -14,7 +14,7 @@ interface EditDeleteRecipeContract {
     interface ViewModel: BaseContract.BaseViewModel {
         fun updateRecipe(recipe: Recipe)
         fun deleteRecipe(recipe: Recipe)
-        fun getRecipeResultLiveData(): MutableLiveData<Resource<Number>>
+        fun getRecipeResultLiveData(): MutableLiveData<Pair<String, Resource<Number>>>
     }
 
     interface Repository: BaseContract.BaseRepository {

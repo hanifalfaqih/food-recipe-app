@@ -8,21 +8,11 @@ import com.allana.food_recipe_app.data.local.room.entity.Recipe
 @Dao
 interface RecipeDao {
 
-
-    //    @Transaction
-//    suspend fun addCategoryRecipe(category: Category, items: List<Recipe>) {
-//        val listId = insertCategory(category)
-//
-//        items.forEach { it.idCategoryRecipe = listId.toInt() }
-//        insertRecipe(items)
-//    }
-
-    //    @Insert
-//    suspend fun insertRecipe(recipe: List<Recipe>)
-//
-//    @Insert
-//    suspend fun insertCategory(category: Category): Long
-
+    /**
+     * Use to get list of data recipes
+     */
+    @Query("SELECT * FROM recipes")
+    suspend fun getAllRecipe(): List<Recipe>
 
     @Insert
     suspend fun insertRecipe(recipe: Recipe): Long
@@ -43,17 +33,26 @@ interface RecipeDao {
     @Insert
     fun insertAllCategory(category: List<Category>)
 
-//    /**
-//     * Use to get list of data recipes
-//     */
-//    @Query("SELECT * FROM recipes")
-//    fun getAllRecipe(): List<Recipe>
-//
+
 //    /**
 //     * Use to get list of categories with their recipes
 //     */
-    @Transaction
-    @Query("SELECT * FROM categories")
-    fun getCategoriesAndRecipe(): List<CategoryRecipe>
+//    @Transaction
+//    @Query("SELECT * FROM categories")
+//    fun getCategoriesAndRecipe(): List<CategoryRecipe>
+
+    //    @Transaction
+//    suspend fun addCategoryRecipe(category: Category, items: List<Recipe>) {
+//        val listId = insertCategory(category)
+//
+//        items.forEach { it.idCategoryRecipe = listId.toInt() }
+//        insertRecipe(items)
+//    }
+
+    //    @Insert
+//    suspend fun insertRecipe(recipe: List<Recipe>)
+//
+//    @Insert
+//    suspend fun insertCategory(category: Category): Long
 
 }

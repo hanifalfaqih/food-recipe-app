@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.allana.food_recipe_app.data.base.arch.BaseViewModelImpl
 import com.allana.food_recipe_app.data.base.model.Resource
 import com.allana.food_recipe_app.data.local.room.entity.CategoryRecipe
+import com.allana.food_recipe_app.data.local.room.entity.Recipe
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -13,7 +14,7 @@ import java.lang.Exception
 class HomeViewModel(private val repository: HomeRepository) : BaseViewModelImpl(),
     HomeListContract.ViewModel {
 
-    private val recipes = MutableLiveData<Resource<List<CategoryRecipe>>>()
+    private val recipes = MutableLiveData<Resource<List<Recipe>>>()
 
     override fun getAllRecipe() {
         recipes.value = Resource.Loading()
@@ -32,5 +33,5 @@ class HomeViewModel(private val repository: HomeRepository) : BaseViewModelImpl(
         }
     }
 
-    override fun getRecipeLiveData(): MutableLiveData<Resource<List<CategoryRecipe>>> = recipes
+    override fun getRecipeLiveData(): MutableLiveData<Resource<List<Recipe>>> = recipes
 }

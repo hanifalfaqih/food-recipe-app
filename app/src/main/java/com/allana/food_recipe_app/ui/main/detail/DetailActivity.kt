@@ -66,21 +66,6 @@ class DetailActivity :
             DetailActivityViewModel::class.java)
     }
 
-//    override fun observeData() {
-//        super.observeData()
-//        getViewModel().getResultRecipeLiveData().observe(this){ resource ->
-//            when(resource){
-//                is Resource.Success -> {
-//                    Log.d(TAG, "success")
-//                    allCategory = resource.data?.second
-//                }
-//                else -> {
-//                    Log.d(TAG, "success")
-//                }
-//            }
-//        }
-//    }
-
     private fun initializeRecipe(){
         recipe?.let { recipe ->
             category?.let{

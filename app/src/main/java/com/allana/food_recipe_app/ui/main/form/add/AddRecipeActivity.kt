@@ -10,9 +10,7 @@ import com.allana.food_recipe_app.data.base.arch.GenericViewModelFactory
 import com.allana.food_recipe_app.data.base.model.Resource
 import com.allana.food_recipe_app.data.local.room.RecipeDatabase
 import com.allana.food_recipe_app.data.local.room.datasource.RecipeDataSourceImpl
-import com.allana.food_recipe_app.data.local.room.entity.CategoryRecipe
 import com.allana.food_recipe_app.data.local.room.entity.Recipe
-import com.allana.food_recipe_app.data.local.room.entity.populateData
 import com.allana.food_recipe_app.databinding.ActivityAddRecipeBinding
 
 class AddRecipeActivity: BaseActivity<ActivityAddRecipeBinding, AddRecipeViewModel>(ActivityAddRecipeBinding::inflate), AddRecipeContract.View {

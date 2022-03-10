@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import com.allana.food_recipe_app.data.base.arch.BaseContract
 import com.allana.food_recipe_app.data.base.model.Resource
 import com.allana.food_recipe_app.data.local.room.entity.Category
-import com.allana.food_recipe_app.data.local.room.entity.CategoryRecipe
 import com.allana.food_recipe_app.data.local.room.entity.Recipe
 
 interface HomeListContract {
@@ -22,7 +21,6 @@ interface HomeListContract {
 
     interface Repository : BaseContract.BaseRepository {
         suspend fun getAllRecipe(): List<Recipe>
-
         suspend fun getAllCategory(): List<Category>
     }
 }

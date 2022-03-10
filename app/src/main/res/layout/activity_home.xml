@@ -48,9 +48,6 @@
         app:layout_constraintStart_toStartOf="@id/guide_start"
         app:layout_constraintTop_toBottomOf="@id/tv_title_recipe" />
 
-
-
-
     <LinearLayout
         android:id="@+id/ll_list_recipe"
         android:layout_width="match_parent"

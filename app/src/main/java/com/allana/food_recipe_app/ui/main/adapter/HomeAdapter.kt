@@ -8,7 +8,7 @@ import com.allana.food_recipe_app.data.local.room.entity.Recipe
 import com.allana.food_recipe_app.databinding.ItemRecipeBinding
 import com.bumptech.glide.Glide
 
-class HomeAdapter(private val itemClick: (Recipe) -> Unit) :
+class HomeAdapter(private val itemClick: (Recipe, Category?) -> Unit) :
     RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
 
     private var items: MutableList<Recipe> = mutableListOf()
@@ -46,7 +46,7 @@ class HomeAdapter(private val itemClick: (Recipe) -> Unit) :
 
     class HomeViewHolder(
         private val binding: ItemRecipeBinding,
-        val itemClick: (Recipe) -> Unit
+        val itemClick: (Recipe, Category?) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bindView(item: Recipe, allCategory: List<Category>) {
@@ -64,7 +64,7 @@ class HomeAdapter(private val itemClick: (Recipe) -> Unit) :
                     .into(binding.ivFood)
 
                 itemView.setOnClickListener {
-                    itemClick(this)
+                    itemClick(this, category)
                 }
             }
         }

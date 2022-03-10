@@ -5,7 +5,8 @@
       <map>
         <entry key="..\:/Binar-Android-Project/food-recipe-app/app/src/main/res/layout/activity_add_recipe.xml" value="0.22447916666666667" />
         <entry key="..\:/Binar-Android-Project/food-recipe-app/app/src/main/res/layout/activity_detail.xml" value="0.1787037037037037" />
-        <entry key="..\:/Binar-Android-Project/food-recipe-app/app/src/main/res/layout/activity_home.xml" value="0.22447916666666667" />
+        <entry key="..\:/Binar-Android-Project/food-recipe-app/app/src/main/res/layout/activity_edit_delete_recipe.xml" value="0.22447916666666667" />
+        <entry key="..\:/Binar-Android-Project/food-recipe-app/app/src/main/res/layout/activity_home.xml" value="0.16" />
         <entry key="..\:/Binar-Android-Project/food-recipe-app/app/src/main/res/layout/item_recipe.xml" value="0.1787037037037037" />
         <entry key="app/src/main/res/drawable/ic_back.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />

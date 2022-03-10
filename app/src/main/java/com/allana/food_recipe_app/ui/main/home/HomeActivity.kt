@@ -3,6 +3,7 @@ package com.allana.food_recipe_app.ui.main.home
 import android.content.Intent
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.allana.food_recipe_app.R
 import com.allana.food_recipe_app.data.base.arch.BaseActivity
 import com.allana.food_recipe_app.data.base.arch.GenericViewModelFactory
@@ -42,8 +43,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(ActivityHo
     }
 
     override fun setupRecyclerView() {
-        adapter = HomeAdapter {
-            DetailActivity.startActivityToDetail(this, it)
+        adapter = HomeAdapter { recipe, category ->
+            DetailActivity.startActivityToDetail(this, recipe, category)
         }
         getViewBinding().rvCategory.apply {
             layoutManager = GridLayoutManager(this@HomeActivity, 2)

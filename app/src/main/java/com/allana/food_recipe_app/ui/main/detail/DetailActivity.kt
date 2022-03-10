@@ -4,18 +4,15 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.util.Log
 import android.view.MenuItem
 import com.allana.food_recipe_app.R
 import com.allana.food_recipe_app.data.base.arch.BaseActivity
 import com.allana.food_recipe_app.data.base.arch.GenericViewModelFactory
-import com.allana.food_recipe_app.data.base.model.Resource
 import com.allana.food_recipe_app.data.local.room.RecipeDatabase
 import com.allana.food_recipe_app.data.local.room.datasource.RecipeDataSourceImpl
 import com.allana.food_recipe_app.data.local.room.entity.Category
 import com.allana.food_recipe_app.data.local.room.entity.Recipe
 import com.allana.food_recipe_app.databinding.ActivityDetailBinding
-import com.allana.food_recipe_app.ui.main.adapter.HomeAdapter
 import com.allana.food_recipe_app.ui.main.form.editdelete.EditDeleteRecipeActivity
 import com.bumptech.glide.Glide
 
@@ -24,17 +21,18 @@ class DetailActivity :
     DetailActivityContract.View {
 
     private var recipe: Recipe? = null
-    private var allCategory: List<Category>? = null
+    private var category: Category? = null
 
     companion object{
-        private val TAG = DetailActivity::class.simpleName
         private const val INTENT_RECIPE_DATA_DETAIL = "INTENT_RECIPE_DATA"
+        private const val INTENT_CATEGORY_DATA_DETAIL = "INTENT_CATEGORY_DATA"
 
         @JvmStatic
-        fun startActivityToDetail(context: Context?, recipe: Recipe? = null){
+        fun startActivityToDetail(context: Context?, recipe: Recipe? = null, category: Category?){
             val intent = Intent(context, DetailActivity::class.java)
             recipe?.let {
                 intent.putExtra(INTENT_RECIPE_DATA_DETAIL, recipe)
+                intent.putExtra(INTENT_CATEGORY_DATA_DETAIL, category)
             }
             context?.startActivity(intent)
         }
@@ -50,8 +48,6 @@ class DetailActivity :
         supportActionBar?.title = getString(R.string.text_detail_recipe)
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#FF672C")))
 
-
-
          getIntentData()
          initializeRecipe()
          setClickListeners()
@@ -60,6 +56,7 @@ class DetailActivity :
 
     override fun getIntentData() {
         recipe = intent.getParcelableExtra(INTENT_RECIPE_DATA_DETAIL)
+        category = intent.getParcelableExtra(INTENT_CATEGORY_DATA_DETAIL)
     }
 
     override fun initViewModel(): DetailActivityViewModel {
@@ -69,26 +66,23 @@ class DetailActivity :
             DetailActivityViewModel::class.java)
     }
 
-    override fun observeData() {
-        super.observeData()
-        getViewModel().getResultRecipeLiveData().observe(this){ resource ->
-            when(resource){
-                is Resource.Success -> {
-                    Log.d(TAG, "success")
-                    allCategory = resource.data?.second
-                }
-                else -> {
-                    Log.d(TAG, "success")
-                }
-            }
-        }
-    }
+//    override fun observeData() {
+//        super.observeData()
+//        getViewModel().getResultRecipeLiveData().observe(this){ resource ->
+//            when(resource){
+//                is Resource.Success -> {
+//                    Log.d(TAG, "success")
+//                    allCategory = resource.data?.second
+//                }
+//                else -> {
+//                    Log.d(TAG, "success")
+//                }
+//            }
+//        }
+//    }
 
     private fun initializeRecipe(){
         recipe?.let { recipe ->
-            val category = allCategory?.firstOrNull{ category ->
-                category.idCategory == recipe.idCategoryRecipe
-            }
             category?.let{
                 getViewBinding().tvCategoryDetail.text = it.categoryName
             }

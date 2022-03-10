@@ -23,13 +23,14 @@ data class Recipe(
     var recipeImage: String?,
 ) : Parcelable
 
+@Parcelize
 @Entity(tableName = "categories")
 data class Category(
     @PrimaryKey
     val idCategory: Int,
     @ColumnInfo(name = "categoryName")
     var categoryName: String?,
-)
+) : Parcelable
 
 fun populateData(): List<Category> {
     return listOf(

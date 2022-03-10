@@ -31,7 +31,7 @@
             android:name=".ui.main.home.HomeActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Home.ActionBar" />
+            android:theme="@style/Theme.Home" />
         <activity
             android:name="com.allana.food_recipe_app.ui.main.detail.DetailActivity"
             android:exported="false"

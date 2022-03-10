@@ -1,3 +1,72 @@
 <resources>
-    <string name="app_name">food-recipe-app</string>
+    <string name="app_name">Food Recipe</string>
+    <string name="text_title_intro_one">Explore <font color="#FF672C">Thousands \n</font>of Recipes</string>
+    <string name="text_desc_intro_one">You can create your own recipe here</string>
+    <string name="text_title_intro_two">Feel <font color="#FF672C">Free</font> to Update</string>
+    <string name="text_desc_intro_two">If recipe is not relevant anymore, \nfeel free to Update</string>
+    <string name="text_title_intro_three">Feel <font color="#FF672C">Free</font> to Remove</string>
+    <string name="text_desc_intro_three">If recipe is not relevant anymore, \nyou can remove easily</string>
+    <string name="text_title_recipe"><font color="#3D3D3D">Simple way to find \n</font><font color="#FF6838">tasty recipes</font></string>
+    <string name="text_welcome"><font color="#3D3D3D">Add your </font><font color="#FF6838">Popular Meal \n</font><font color="#3D3D3D">and lets get </font><font color="#FF6838">started!</font></string>
+    <string name="text_popular_meal">Popular Meal</string>
+    <string name="text_title_category">Category</string>
+    <string name="text_title_food">Teriyaki Chicken</string>
+    <string name="text_title_area">Country</string>
+    <string name="text_category">Dessert</string>
+    <string name="text_title_instruction">INSTRUCTIONS</string>
+    <string name="text_title_ingredients">INGREDIENTS</string>
+    <string name="text_title_tags">Desert, Summer, Fruity, Dairy</string>
+    <string name="text_btn_detile">Detail</string>
+    <string name="text_dsc_category">Beef is the culinary name for meat from cattle, particularly skeletal muscle. Humans have been eating beef since prehistori</string>
+
+    <string name="text_hint_recipe_name">Recipe Name</string>
+    <string name="text_hint_recipe_body">Recipe</string>
+    <string name="btn_update_recipe">Update</string>
+    <string name="btn_delete_recipe">delete</string>
+    <string name="btn_save_recipe">save</string>
+    <string name="text_copy_link_image">Copy Link Image</string>
+    <string name="text_hint_link_image">Link Image</string>
+    <string name="text_hint_recipe_ingredients">Ingredients</string>
+    <string name="text_recipe_categories">Categories</string>
+    <string name="text_recipe_instructions">Instructions</string>
+    <string name="text_ingredients">Ingredients</string>
+    <string name="text_instructions">Instructions</string>
+    <string name="text_save">Save</string>
+    <string name="text_delete">Delete</string>
+    <string name="text_title_ingredients_detail">Ingredients</string>
+    <string name="text_title_instructions_title">Instructions</string>
+    <string name="btn_update_detail">Update Recipe</string>
+    <string name="text_action_bar_edit_delete_activity">Update Recipe</string>
+    <string name="text_action_bar_add_activity">Add Recipe</string>
+    <string name="text_detail_recipe">Detail Recipe</string>
+    <string name="text_success_add_recipe">Success add recipe!</string>
+    <string name="text_failed_add_recipe">Failed add recipe!</string>
+    <string name="text_success_update_recipe">Success update recipe!</string>
+    <string name="text_failed_update_recipe">Failed update recipe!</string>
+    <string name="text_success_delete_recipe">Success delete recipe!</string>
+    <string name="text_failed_delete_recipe">Failed delete recipe!</string>
+    <string name="text_error_et_recipe_image">Please enter link image</string>
+    <string name="text_error_et_recipe_name">Please enter recipe name</string>
+    <string name="text_error_et_recipe_ingredients">Please enter recipe ingredients</string>
+    <string name="text_error_et_recipe_instructions">Please enter recipe instructions</string>
+    <string name="text_alert_dialog_title">Cancel</string>
+    <string name="text_alert_dialog_message">Are you sure to cancel without update all changes in this form? All changes you\'ve made will be delete</string>
+    <string name="text_negative_button">No</string>
+
+    <string-array name="categories">
+        <item>Beef</item>
+        <item>Breakfast</item>
+        <item>Chicken</item>
+        <item>Desert</item>
+        <item>Goat</item>
+        <item>Lamb</item>
+        <item>Miscellaneous</item>
+        <item>Pasta</item>
+        <item>Pork</item>
+        <item>Seafood</item>
+        <item>Side</item>
+        <item>Starter</item>
+        <item>Vegan</item>
+        <item>Vegetarian</item>
+    </string-array>
 </resources>

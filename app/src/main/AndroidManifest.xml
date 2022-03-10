@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.allana.food_recipe_app">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -10,14 +13,40 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Foodrecipeapp">
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".ui.splashscreen.SplashScreen"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.intro.IntroActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Intro" />
+        <activity
+            android:name=".ui.main.home.HomeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Home" />
+        <activity
+            android:name="com.allana.food_recipe_app.ui.main.detail.DetailActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Home.ActionBar" />
+        <activity
+            android:name="com.allana.food_recipe_app.ui.main.form.editdelete.EditDeleteRecipeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Home.ActionBar" />
+        <activity
+            android:name="com.allana.food_recipe_app.ui.main.form.add.AddRecipeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Home.ActionBar" />
     </application>
 
 </manifest>
